@@ -1,3 +1,6 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -12,15 +15,15 @@ msgstr ""
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: DOMAIN\n"
+"Domain: collective.easyformplugin.registration\n"
 
 #: ../configure.zcml:55
 msgid "Adds the ability to use an EasyForm content as registration form."
-msgstr ""
+msgstr "Aggiunge la possibilità di usare un form EasyForm come form di iscrizione per eventi."
 
 #: ../profiles/default/actions.xml
 msgid "Contact registrants"
-msgstr ""
+msgstr "Contatta iscritti"
 
 #: ../configure.zcml:23
 msgid "Installs the collective.easyformplugin.registration add-on."
@@ -28,39 +31,39 @@ msgstr ""
 
 #: ../browser/contact_registrants_view.py:47
 msgid "List of people in waiting list that compiled email fields (could be one of these fields: email, e-mail, replyto)."
-msgstr ""
+msgstr "Elenco di persone in lista di attesa che hanno compilato un campo email (può essere uno di questi campi: email, e-mail, replyto)."
 
 #: ../browser/contact_registrants_view.py:34
 msgid "List of registered people that compiled email fields (could be one of these fields: email, e-mail, replyto)."
-msgstr ""
+msgstr "Elenco di iscritti che hanno compilato un campo email (può essere uno di questi campi: email, e-mail, replyto)."
 
 #: ../browser/contact_registrants_view.py:30
 msgid "Message"
-msgstr ""
+msgstr "Messaggio"
 
 #: ../browser/contact_registrants_view.py:33
 msgid "Registrants"
-msgstr ""
+msgstr "Iscritti"
 
 #: ../behavior.py:86
 msgid "Registration"
-msgstr ""
+msgstr "Registrazione"
 
 #: ../configure.zcml:55
 msgid "Registration form"
-msgstr ""
+msgstr "Form di registrazione"
 
 #: ../browser/contact_registrants_view.py:113
 msgid "Reset"
-msgstr ""
+msgstr "Annulla"
 
 #: ../browser/contact_registrants_view.py:29
 msgid "Subject"
-msgstr ""
+msgstr "Oggetto"
 
 #: ../browser/contact_registrants_view.py:72
 msgid "Submit"
-msgstr ""
+msgstr "Invia"
 
 #: ../configure.zcml:32
 msgid "Uninstalls the collective.easyformplugin.registration add-on."
@@ -68,12 +71,12 @@ msgstr ""
 
 #: ../browser/contact_registrants_view.py:46
 msgid "Waiting list"
-msgstr ""
+msgstr "Lista d'attesa"
 
 #. Default: "Available seats: ${seats}"
 #: ../browser/registration_form.pt:31
 msgid "available_seats_label"
-msgstr ""
+msgstr "Posti disponibili: ${seats}"
 
 #: ../configure.zcml:23
 msgid "collective.easyformplugin.registration"
@@ -86,159 +89,160 @@ msgstr ""
 #. Default: "You need to select at least one recipient from registrants or waiting_list list."
 #: ../browser/contact_registrants_view.py:82
 msgid "contact_recipients_error"
-msgstr ""
+msgstr "Devi selezionare almeno un destinatario tra gli iscritti e la lista d'attesa."
 
 #. Default: "Emails sent."
 #: ../browser/contact_registrants_view.py:100
 msgid "contact_recipients_sent"
-msgstr ""
+msgstr "Email spedite."
 
 #. Default: "Unable to send messages. Action not found in Form."
 #: ../browser/contact_registrants_view.py:127
 msgid "contact_registrants_action_not_found"
-msgstr ""
+msgstr "Impossibile inviare i messaggi. Azione non trovata nel form."
 
 #. Default: "In this page you can send a message to registrants."
 #: ../browser/contact_registrants_view.pt:16
 msgid "contact_registrants_help"
-msgstr ""
+msgstr "In questa pagina puoi inviare un messaggio agli iscritti."
 
 #. Default: "Contact registrants"
 #: ../browser/contact_registrants_view.pt:11
 msgid "contact_registrants_label"
-msgstr ""
+msgstr "Contatta gli iscritti"
 
 #. Default: "Select if this form is a registration form. If selected, will be created a new form action (registrants) and a new hidden field (waiting_list). If one of these two defaults is missing, the registration form can't work properly."
 #: ../behavior.py:20
 msgid "help_is_registration_form"
-msgstr ""
+msgstr "Seleziona se il form è un form di registrazione. Se attivato, verrà creata una nuova azione del form (registrants) e un nuovo campo nascosto (waiting_list). Se una di queste due impsotazioni manca, il form non potrà funzionare correttamente."
 
 #. Default: "Set a maximum number of attendees for this registration form. Leave empty for unlimited."
 #: ../behavior.py:31
 msgid "help_max_attendees"
-msgstr ""
+msgstr "Imposta un numero massimo di iscritti a questo form. Se lasciato vuoto, non ci sarà limite."
 
 #. Default: "Pick any extra data you'd like saved with the form input."
 #: ../interfaces.py:43
 msgid "help_savedataextra_text"
-msgstr ""
+msgstr "Selezione dei dati extra che vuoi salvare insieme ai campi del form."
 
 #. Default: "Pick the fields whose inputs you'd like to include in the saved data. If empty, all fields will be saved."
 #: ../interfaces.py:31
 msgid "help_savefields_text"
-msgstr ""
+msgstr "Seleziona i campi del form che vuoi includere nei dati salvati. Se vuoto, tutti i campi verranno salvati."
 
 #. Default: "Allows to show in the subscription page how many seats are still available. Waiting list seats are not counted."
 #: ../behavior.py:51
 msgid "help_show_seats_left"
-msgstr ""
+msgstr "Permette di mostrare nel form quanti posti liberi ci sono ancora. La lista d'attesa non è conteggiata."
 
 #. Default: "Date and Time, when the registration form closes."
 #: ../behavior.py:73
 msgid "help_subscription_close_date"
-msgstr ""
+msgstr "Data e orario di chiusura delle iscrizioni."
 
 #. Default: "Date and Time, when the registration form opens."
 #: ../behavior.py:60
 msgid "help_subscription_open_date"
-msgstr ""
+msgstr "Data e orario dell'apertura delle iscrizioni."
 
 #. Default: "Do you wish to have column names on the first line of downloaded input?"
 #: ../interfaces.py:58
 msgid "help_usecolumnnames_text"
-msgstr ""
+msgstr "Vuoi mostrare i nomi delle colonne nella prima riga del file esportato?"
 
 #. Default: "Set a number of available seats in waiting list. Leave empty for disable the waiting list."
 #: ../behavior.py:41
+#, fuzzy
 msgid "help_waiting_list_size"
-msgstr ""
+msgstr "Imposta un numero di iscritti che possono entrare nella lista d'attesa. Se lasciato vuoto non sarà prevista nessuna lista d'attesa."
 
 #. Default: "Download Format"
 #: ../interfaces.py:52
 msgid "label_downloadformat_text"
-msgstr ""
+msgstr "Formato download"
 
 #. Default: "Registration form"
 #: ../behavior.py:19
 msgid "label_is_registration_form"
-msgstr ""
+msgstr "Form di registrazione"
 
 #. Default: "Max attendees"
 #: ../behavior.py:30
 msgid "label_max_attendees"
-msgstr ""
+msgstr "Numero massimo di iscritti"
 
 #. Default: "Registrant Data"
 #: ../actions.py:101
 msgid "label_registrant_data_action"
-msgstr ""
+msgstr "Dati iscritti"
 
 #. Default: "Extra Data"
 #: ../interfaces.py:42
 msgid "label_savedataextra_text"
-msgstr ""
+msgstr "Dati extra"
 
 #. Default: "Saved Fields"
 #: ../interfaces.py:30
 msgid "label_savefields_text"
-msgstr ""
+msgstr "Campi salvati"
 
 #. Default: "Show seats left"
 #: ../behavior.py:50
 msgid "label_show_seats_left"
-msgstr ""
+msgstr "Mostra i posti disponibili"
 
 #. Default: "Close date"
 #: ../behavior.py:72
 msgid "label_subscription_close_date"
-msgstr ""
+msgstr "Data di chiusura"
 
 #. Default: "Open date"
 #: ../behavior.py:59
 msgid "label_subscription_open_date"
-msgstr ""
+msgstr "Data di apertura"
 
 #. Default: "Include Column Names"
 #: ../interfaces.py:57
 msgid "label_usecolumnnames_text"
-msgstr ""
+msgstr "Includi i nomi delle colonne"
 
 #. Default: "Waiting list size"
 #: ../behavior.py:40
 msgid "label_waiting_list_size"
-msgstr ""
+msgstr "Numero di posti in lista d'attesa"
 
 #. Default: "Attendees limit reached."
 #: ../browser/view.py:127
 msgid "message_attendees_limit_reached"
-msgstr ""
+msgstr "Numero massimo di iscritti raggiunto."
 
 #. Default: "Registration ended on ${date} at ${hour}."
 #: ../browser/view.py:174
 msgid "message_close_date_past"
-msgstr ""
+msgstr "La registrazione si è conclusa il ${date} alle ${hour}."
 
 #. Default: "Registration opening on ${date} at ${hour}."
 #: ../browser/view.py:161
 msgid "message_open_date_future"
-msgstr ""
+msgstr "La registrazione verrà aperta il ${date} alle ${hour}."
 
 #. Default: "You can subscribe anyway and enter to a waiting list. We will contact you in case some participants will cancel their subscription."
 #: ../browser/view.py:111
 msgid "message_waiting_list_open"
-msgstr ""
+msgstr "Puoi iscriverti lo stesso ed entrare in una lista d'attesa. Ti ricontatteremo nel caso qualche partecipante cancelli la sua iscrizione."
 
 #. Default: "Attendees limit reached."
 #: ../browser/view.py:118
 msgid "message_waiting_list_open_strong"
-msgstr ""
+msgstr "Limite massimo di partecipanti raggiunto."
 
 #. Default: "You can't subscribe to this form."
 #: ../browser/view.py:187
 msgid "registration_form_error"
-msgstr ""
+msgstr "Non puoi iscriverti al momento."
 
 #. Default: "Return to form"
 #: ../browser/contact_registrants_view.pt:22
 msgid "return_to_form_label"
-msgstr ""
+msgstr "Ritorna al form"

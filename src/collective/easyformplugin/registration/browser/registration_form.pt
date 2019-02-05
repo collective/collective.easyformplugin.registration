@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      i18n:domain="collective.easyformplugin.registration"
+      tal:omit-tag="">
+  <metal:form metal:use-macro="context/@@ploneform-macros/form">
+    <metal:title-slot fill-slot="title"></metal:title-slot>
+    <metal:top-slot fill-slot="formtop">
+      <div id="formPrologue"
+           tal:define="prologue context/formPrologue|nothing"
+           tal:condition="prologue"
+           tal:content="structure prologue/output" />
+    </metal:top-slot>
+    <metal:fields-slot
+      fill-slot="fields"
+      tal:define="form_status view/get_form_status;
+                  form_active form_status/active;
+                  status_message form_status/status_message|nothing">
+      <div class="portalMessage ${status_message/type}"
+             tal:condition="status_message|nothing">
+        <strong>${status_message/strong_message}</strong>
+        <span tal:condition="status_message/message|nothing">${status_message/message}</span>
+      </div>
+      <div tal:condition="form_active"
+           class="form-active">
+        <metal:open metal:use-macro="context/@@ploneform-macros/fields"
+                    tal:condition="form_active" />
+        <tal:available_seats tal:condition="python:context.show_seats_left and context.max_attendees">
+          <div class="available-seats"
+              tal:define="available_seats view/available_seats">
+            <p i18n:translate="available_seats_label">
+              Available seats: <tal:seats i18n:name="seats" tal:content="available_seats" />
+            </p>
+          </div>
+        </tal:available_seats>
+      </div>
+    </metal:fields-slot>
+    <metal:actions-slot fill-slot="actions"
+                        tal:define="form_status view/get_form_status">
+      <metal:open metal:use-macro="context/@@ploneform-macros/actions"
+                    tal:condition="form_status/active" />
+    </metal:actions-slot>
+    <metal:top-slot fill-slot="formbottom">
+      <div id="formEpilogue"
+           tal:define="epilogue context/formEpilogue"
+           tal:condition="epilogue"
+           tal:content="structure epilogue/output" />
+    </metal:top-slot>
+  </metal:form>
+</html>

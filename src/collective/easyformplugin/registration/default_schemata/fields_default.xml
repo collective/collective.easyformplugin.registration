@@ -1,0 +1,13 @@
+  <model xmlns:easyform="http://namespaces.plone.org/supermodel/easyform"
+       xmlns="http://namespaces.plone.org/supermodel/schema"
+       xmlns:form="http://namespaces.plone.org/supermodel/form">
+  <schema>
+    <field name="waiting_list" type="zope.schema.Bool" easyform:serverSide="False" easyform:THidden="True">
+      <description/>
+      <required>False</required>
+      <title>Waiting list</title>
+      <default>False</default>
+      <form:widget type="z3c.form.browser.radio.RadioFieldWidget"/>
+    </field>
+  </schema>
+</model>

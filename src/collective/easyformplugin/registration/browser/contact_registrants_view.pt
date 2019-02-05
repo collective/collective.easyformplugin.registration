@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="collective.easyformplugin.registration">
+<body>
+<metal:content-title fill-slot="content-title">
+    <metal:block define-macro="content-title">
+        <h1 class="documentFirstHeading" i18n:translate="contact_registrants_label">Contact registrants</h1>
+    </metal:block>
+</metal:content-title>
+<metal:content-description fill-slot="content-description">
+    <metal:block define-macro="content-description">
+        <p class="discreet" i18n:translate="contact_registrants_help">In this page you can send a message to registrants.</p>
+    </metal:block>
+</metal:content-description>
+
+<metal:content-core fill-slot="content-core">
+<metal:block define-macro="content-core">
+    <a id="return-link"
+       class="link-parent"
+       href="${context/absolute_url}" i18n:translate="return_to_form_label">Return to form</a>
+    <span tal:replace="structure view/contents" />
+
+<script type="text/javascript" src="${context/portal_url}/++plone++collective.easyformplugin.registration/contact_registrants.js?v=${view/form_instance/get_package_version}"></script>
+</metal:block>
+</metal:content-core>
+</body>
+</html>

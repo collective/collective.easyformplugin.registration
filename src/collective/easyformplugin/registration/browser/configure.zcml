@@ -4,18 +4,32 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="collective.easyformplugin.registration">
 
-  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
-  <include package="z3c.jbot" file="meta.zcml" />
-  <browser:jbot
-      directory="overrides"
-      layer="collective.easyformplugin.registration.interfaces.ICollectiveEasyformpluginRegistrationLayer"
-      />
-
   <!-- Publish static files -->
   <plone:static
       name="collective.easyformplugin.registration"
       type="plone"
       directory="static"
       />
-
+   
+   <browser:page
+        for="collective.easyformplugin.registration.interfaces.IEasyFormRegistrationEnabled"
+        name="view"
+        class=".view.RegistrationFormView"
+        permission="zope2.View"
+        layer="collective.easyformplugin.registration.interfaces.ICollectiveEasyFormpluginRegistrationLayer"
+        />
+    <browser:page
+        for="collective.easyformplugin.registration.interfaces.IEasyFormRegistrationEnabled"
+        name="contact-registrants"
+        class=".contact_registrants_view.ContactRegistrantsView"
+        permission="zope2.View"
+        layer="collective.easyformplugin.registration.interfaces.ICollectiveEasyFormpluginRegistrationLayer"
+        />
+    <browser:page
+      for="collective.easyformplugin.registration.interfaces.IEasyFormRegistrationEnabled"
+      name="contact-registrants-email"
+      template="contact-registrants-email.pt"
+      permission="zope.Public"
+      layer="collective.easyformplugin.registration.interfaces.ICollectiveEasyFormpluginRegistrationLayer"
+      />
 </configure>

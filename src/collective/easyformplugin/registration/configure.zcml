@@ -7,16 +7,10 @@
 
   <i18n:registerTranslations directory="locales" />
 
-  <!--
-    Be careful if you use general includeDependencies, it can have sideffects!
-    Better import explicite packages or configurations ;)
-  -->
-  <!--<includeDependencies package="." />-->
-
   <include package=".browser" />
-
+  
+  <include file="actions.zcml" />
   <include file="permissions.zcml" />
-
   <include file="upgrades.zcml" />
 
   <genericsetup:registerProfile
@@ -42,6 +36,32 @@
       name="collective.easyformplugin.registration-hiddenprofiles"
       />
 
-  <!-- -*- extra stuff goes here -*- -->
+    <!-- Behavior -->
+    <include package="plone.behavior" file="meta.zcml" />
+    <subscriber
+        for="collective.easyform.interfaces.easyform.IEasyForm
+            zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+        handler=".event.handle_edit_form"
+        />
+    <subscriber
+        for="collective.easyform.interfaces.easyform.IEasyForm
+            zope.lifecycleevent.interfaces.IObjectCreatedEvent"
+        handler=".event.handle_add_form"
+        />
+    <plone:behavior
+        title="Registration form"
+        description="Adds the ability to use an EasyForm content as registration form."
+        provides=".behavior.IRegistrationForm"
+        />
+    <!-- Declare marker interface, so that it is available in the Management Interface -->
+    <interface interface="collective.easyformplugin.registration.interfaces.IEasyFormRegistrationEnabled" />
 
+    <utility
+        component=".vocabularies.registrants_vocabulary_factory"
+        name="collective.easyformplugin.registration.registrants"
+        />
+    <utility
+        component=".vocabularies.waiting_list_vocabulary_factory"
+        name="collective.easyformplugin.registration.waiting_list"
+        />
 </configure>

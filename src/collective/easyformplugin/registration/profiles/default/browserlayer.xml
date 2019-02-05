@@ -2,6 +2,6 @@
 <layers>
   <layer
       name="collective.easyformplugin.registration"
-      interface="collective.easyformplugin.registration.interfaces.ICollectiveEasyformpluginRegistrationLayer"
+      interface="collective.easyformplugin.registration.interfaces.ICollectiveEasyFormpluginRegistrationLayer"
       />
 </layers>
