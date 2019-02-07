@@ -62,7 +62,7 @@ class ContactRegistrantsForm(form.Form):
     Contact registrants form
     """
 
-    ignoreContext = False
+    ignoreContext = True
     css_class = 'contact-registrants'
     fields = field.Fields(IContactRegistrantsForm)
     

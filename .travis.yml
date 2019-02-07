@@ -3,21 +3,25 @@ sudo: false
 cache:
   pip: true
   directories:
-  - eggs
-  - downloads
+    - eggs
+    - downloads
 python:
   - "2.7"
+env:
+  - PLONE_VERSION=5.0.x
+  - PLONE_VERSION=5.1.x
 matrix:
   fast_finish: true
 install:
   - virtualenv -p `which python` .
   - bin/pip install -r requirements.txt
+  - sed -ie "s#test-5.1.x#test-$PLONE_VERSION#" buildout.cfg
   - bin/buildout -N buildout:download-cache=downloads code-analysis:return-status-codes=True annotate
   - bin/buildout -N buildout:download-cache=downloads code-analysis:return-status-codes=True
 before_script:
-- export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
-- firefox -v
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - firefox -v
 script:
   - bin/code-analysis
   - bin/test

@@ -8,6 +8,7 @@ from plone.app.testing import PloneSandboxLayer
 from plone.testing import z2
 
 import collective.easyformplugin.registration
+import collective.easyform
 
 
 class CollectiveEasyFormpluginRegistrationLayer(PloneSandboxLayer):
@@ -19,6 +20,7 @@ class CollectiveEasyFormpluginRegistrationLayer(PloneSandboxLayer):
         # The z3c.autoinclude feature is disabled in the Plone fixture base
         # layer.
         self.loadZCML(package=collective.easyformplugin.registration)
+        self.loadZCML(package=collective.easyform)
 
     def setUpPloneSite(self, portal):
         applyProfile(portal, 'collective.easyformplugin.registration:default')

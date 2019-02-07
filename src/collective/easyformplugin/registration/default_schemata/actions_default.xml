@@ -8,6 +8,7 @@
       <description/>
       <showFields/>
       <title>Registrants</title>
+      <description>DO NOT REMOVE</description>
       <required>True</required>
     </field>
   </schema>
