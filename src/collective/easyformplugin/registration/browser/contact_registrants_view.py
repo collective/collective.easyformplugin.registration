@@ -100,7 +100,7 @@ class ContactRegistrantsForm(form.Form):
                 message=_('contact_recipients_sent', u'Emails sent.'),
                 request=self.request)
             self.request.response.redirect(self.nextURL())
-        except (SMTPException, RuntimeError), e:
+        except (SMTPException, RuntimeError) as e:
             logger.exception(e)
             plone_utils = api.portal.get_tool(name='plone_utils')
             exception = plone_utils.exceptionString()
