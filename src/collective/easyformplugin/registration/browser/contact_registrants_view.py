@@ -2,7 +2,7 @@
 from collective.easyform.api import get_actions
 from collective.easyformplugin.registration import _
 from collective.easyformplugin.registration.interfaces import IRegistrantData
-from email.MIMEText import MIMEText
+from email.mime.text import MIMEText
 from Products.CMFPlone import PloneMessageFactory as pmf
 from plone import api
 from plone.registry.interfaces import IRegistry
@@ -65,7 +65,7 @@ class ContactRegistrantsForm(form.Form):
     ignoreContext = True
     css_class = 'contact-registrants'
     fields = field.Fields(IContactRegistrantsForm)
-    
+
     fields['registrants'].widgetFactory = CheckBoxFieldWidget
     fields['waiting_list'].widgetFactory = CheckBoxFieldWidget
 
@@ -98,7 +98,8 @@ class ContactRegistrantsForm(form.Form):
             self.send_message(data=data, email_addresses=email_addresses)
             api.portal.show_message(
                 message=_('contact_recipients_sent', u'Emails sent.'),
-                request=self.request)
+                request=self.request,
+            )
             self.request.response.redirect(self.nextURL())
         except (SMTPException, RuntimeError) as e:
             logger.exception(e)
@@ -106,9 +107,11 @@ class ContactRegistrantsForm(form.Form):
             exception = plone_utils.exceptionString()
             message = pmf(
                 u'Unable to send mail: ${exception}',
-                mapping={u'exception': exception})
+                mapping={u'exception': exception},
+            )
             api.portal.show_message(
-                message=message, request=self.request, type='error')
+                message=message, request=self.request, type='error'
+            )
 
     @button.buttonAndHandler(_(u'Reset'), name='reset')
     def handleReset(self, action):
@@ -145,7 +148,8 @@ class ContactRegistrantsForm(form.Form):
         template = api.content.get_view(
             name='contact-registrants-email',
             context=self.context,
-            request=self.request)
+            request=self.request,
+        )
         return template(self.context, **variables).encode(encoding)
 
     def send_message(self, data, email_addresses):
@@ -168,12 +172,13 @@ class ContactRegistrantsForm(form.Form):
                 send_to_address,
                 from_address,
                 subject=subject,
-                charset=encoding
+                charset=encoding,
             )
-    
+
     def get_package_version(self):
         return pkg_resources.get_distribution(
-            "collective.easyformplugin.registration").version
+            "collective.easyformplugin.registration"
+        ).version
 
 
 ContactRegistrantsView = layout.wrap_form(

@@ -11,19 +11,8 @@ from Products.Five.utilities.marker import mark
 import os
 
 
-this_path = os.path.dirname(__file__)
-
-FIELDS_DEFAULT = safe_unicode(
-    open(
-        os.path.join(this_path, "default_schemata", "fields_default.xml")
-    ).read()
-)
-
-ACTIONS_DEFAULT = safe_unicode(
-    open(
-        os.path.join(this_path, "default_schemata", "actions_default.xml")
-    ).read()
-)
+FIELDS_DEFAULT_FILENAME = 'fields_default.xml'
+ACTIONS_DEFAULT_FILENAME = 'actions_default.xml'
 
 
 def handle_add_form(obj, event):
@@ -48,11 +37,18 @@ def set_actions(context):
     context.reindexObject(idxs=['object_provides'])
 
 
+def readSchemaFromFile(filename):
+    this_path = os.path.dirname(__file__)
+    with open(os.path.join(this_path, "default_schemata", filename)) as f:
+        return safe_unicode(f.read())
+
+
 def updateActionsSchema(context):
     """
     Add default actions only if not present.
     """
-    register_xml = etree.fromstring(ACTIONS_DEFAULT)
+    schema = readSchemaFromFile(ACTIONS_DEFAULT_FILENAME)
+    register_xml = etree.fromstring(schema)
     form_xml = etree.fromstring(context.actions_model)
     action_names = loadString(context.actions_model).schema.names()
     new_fields = register_xml.findall(
@@ -71,7 +67,8 @@ def updateFieldsSchema(context):
     """
     Add waiting list field, if waiting list is set and not present.
     """
-    register_xml = etree.fromstring(FIELDS_DEFAULT)
+    schema = readSchemaFromFile(FIELDS_DEFAULT_FILENAME)
+    register_xml = etree.fromstring(schema)
     form_xml = etree.fromstring(context.fields_model)
     fields_names = loadString(context.fields_model).schema.names()
     new_fields = register_xml.findall(
