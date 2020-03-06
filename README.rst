@@ -2,29 +2,29 @@
    If you want to learn more about writing documentation, please check out: http://docs.plone.org/about/documentation_styleguide.html
    This text does not appear on pypi or github. It is a comment.
 
-======================================
-collective.easyformplugin.registration
-======================================
+========================================
+Collective Easyform: Registration plugin
+========================================
 
-Tell me what your product does
+Plugin for collective.easyform that allows to manage a subscription form.
 
-Features
---------
+With this product installed, when you create a new **Easyform** content-type, there will be a new "Registration" tab in edit form.
 
-- Can be bullet points
+You can set the max number of attendees, a waiting list and open and close dates.
 
+Subscription logic
+------------------
 
-Examples
---------
+Users can subscribe to the form if:
 
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
+- Current date is between open and close date
+- There are still available slots
+- Available slots are full but there is a waiting list
 
+Contact registrants
+-------------------
 
-Documentation
--------------
-
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
+You can send messages to registrants (and waiting list) to keep them updated.
 
 
 Translations
@@ -32,7 +32,8 @@ Translations
 
 This product has been translated into
 
-- Klingon (thanks, K'Plai)
+- English
+- Italian
 
 
 Installation
@@ -56,14 +57,6 @@ Contribute
 
 - Issue Tracker: https://github.com/collective/collective.easyformplugin.registration/issues
 - Source Code: https://github.com/collective/collective.easyformplugin.registration
-- Documentation: https://docs.plone.org/foo/bar
-
-
-Support
--------
-
-If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
 
 
 License

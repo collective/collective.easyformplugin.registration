@@ -15,7 +15,7 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="collective.easyformplugin.registration"
+      title="Collective Easyform: Registration plugin"
       directory="profiles/default"
       description="Installs the collective.easyformplugin.registration add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"
@@ -24,7 +24,7 @@
 
   <genericsetup:registerProfile
       name="uninstall"
-      title="collective.easyformplugin.registration (uninstall)"
+      title="Collective Easyform: Registration plugin (uninstall)"
       directory="profiles/uninstall"
       description="Uninstalls the collective.easyformplugin.registration add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"
