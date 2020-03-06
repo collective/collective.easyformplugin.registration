@@ -16,7 +16,7 @@ long_description = '\n\n'.join(
 
 setup(
     name='collective.easyformplugin.registration',
-    version='1.0.0',
+    version='1.0.1.dev0',
     description="Add a behavior to collective.easyform to manage registration forms",
     long_description=long_description,
     # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers
