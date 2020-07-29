@@ -43,10 +43,10 @@ setup(
     install_requires=[
         "setuptools",
         "z3c.jbot",
-        "collective.easyform[recaptcha]",
+        "collective.easyform[recaptcha]>=3.0.1",
         "lxml",
     ],
-    extras_require={"test": ["plone.app.testing", "plone.app.robotframework[debug]",]},
+    extras_require={"test": ["plone.app.testing"]},
     entry_points="""
     [z3c.autoinclude.plugin]
     target = plone
