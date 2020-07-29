@@ -5,6 +5,9 @@ Changelog
 2.0.0 (unreleased)
 ------------------
 
+- Update translation and add German language.
+  [jensens]
+
 - Development: Move from TravisCI to Github Actions.
   [jensens]
 
