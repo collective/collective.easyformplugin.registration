@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 from plone.app.contenttypes.testing import PLONE_APP_CONTENTTYPES_FIXTURE
-from plone.app.robotframework.testing import REMOTE_LIBRARY_BUNDLE_FIXTURE
-from plone.app.testing import applyProfile
-from plone.app.testing import FunctionalTesting
-from plone.app.testing import IntegrationTesting
-from plone.app.testing import PloneSandboxLayer
+from plone.app.testing import (
+    applyProfile,
+    FunctionalTesting,
+    IntegrationTesting,
+    PloneSandboxLayer,
+)
 from plone.testing import z2
 
-import collective.easyformplugin.registration
 import collective.easyform
+import collective.easyformplugin.registration
 
 
 class CollectiveEasyFormpluginRegistrationLayer(PloneSandboxLayer):
@@ -23,7 +24,7 @@ class CollectiveEasyFormpluginRegistrationLayer(PloneSandboxLayer):
         self.loadZCML(package=collective.easyform)
 
     def setUpPloneSite(self, portal):
-        applyProfile(portal, 'collective.easyformplugin.registration:default')
+        applyProfile(portal, "collective.easyformplugin.registration:default")
 
 
 COLLECTIVE_EASYFORMPLUGIN_REGISTRATION_FIXTURE = (
@@ -33,21 +34,11 @@ COLLECTIVE_EASYFORMPLUGIN_REGISTRATION_FIXTURE = (
 
 COLLECTIVE_EASYFORMPLUGIN_REGISTRATION_INTEGRATION_TESTING = IntegrationTesting(
     bases=(COLLECTIVE_EASYFORMPLUGIN_REGISTRATION_FIXTURE,),
-    name='CollectiveEasyFormpluginRegistrationLayer:IntegrationTesting',
+    name="CollectiveEasyFormpluginRegistrationLayer:IntegrationTesting",
 )
 
 
 COLLECTIVE_EASYFORMPLUGIN_REGISTRATION_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(COLLECTIVE_EASYFORMPLUGIN_REGISTRATION_FIXTURE,),
-    name='CollectiveEasyFormpluginRegistrationLayer:FunctionalTesting',
-)
-
-
-COLLECTIVE_EASYFORMPLUGIN_REGISTRATION_ACCEPTANCE_TESTING = FunctionalTesting(
-    bases=(
-        COLLECTIVE_EASYFORMPLUGIN_REGISTRATION_FIXTURE,
-        REMOTE_LIBRARY_BUNDLE_FIXTURE,
-        z2.ZSERVER_FIXTURE,
-    ),
-    name='CollectiveEasyFormpluginRegistrationLayer:AcceptanceTesting',
+    name="CollectiveEasyFormpluginRegistrationLayer:FunctionalTesting",
 )

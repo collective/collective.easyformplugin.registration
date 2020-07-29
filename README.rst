@@ -55,6 +55,9 @@ and then running ``bin/buildout``
 Contribute
 ----------
 
+.. image:: https://github.com/collective/collective.easyformplugin.registration/workflows/Build%20&%20Test/badge.svg?event=push
+    :target:https://github.com/collective/collective.easyformplugin.registration/actions?query=workflow%3A%22Build+%26+Test%22
+
 - Issue Tracker: https://github.com/collective/collective.easyformplugin.registration/issues
 - Source Code: https://github.com/collective/collective.easyformplugin.registration
 

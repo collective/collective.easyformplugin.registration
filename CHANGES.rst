@@ -2,10 +2,23 @@ Changelog
 =========
 
 
-1.0.1 (unreleased)
+2.0.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Development: Move from TravisCI to Github Actions.
+  [jensens]
+
+- Fix setup test.
+  [jensens]
+
+- Black and isort code formating.
+  [jensens]
+
+- Breaking: Drop support for Plone < 5.2.
+  [jensens]
+
+- Breaking: Drop Python 2 support, add Python 3 support.
+  [jensens]
 
 
 1.0.0 (2020-03-06)

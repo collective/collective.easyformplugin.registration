@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
-from collective.easyform.api import filter_fields
-from collective.easyform.api import get_actions
-from collective.easyform.api import get_expression
-from collective.easyform.api import set_actions
+from collective.easyform.api import (
+    filter_fields,
+    get_actions,
+    get_expression,
+    set_actions,
+)
 from collective.easyform.browser.view import EasyFormForm
-from collective.easyform.interfaces import IActionExtender
-from collective.easyform.interfaces import IEasyFormForm
+from collective.easyform.interfaces import IActionExtender, IEasyFormForm
 from collective.easyformplugin.registration import _
 from collective.easyformplugin.registration.interfaces import IRegistrantData
 from datetime import datetime
@@ -27,7 +28,7 @@ class RegistrationFormForm(EasyFormForm):
     Registration Form
     """
 
-    form_template = ViewPageTemplateFile('registration_form.pt')
+    form_template = ViewPageTemplateFile("registration_form.pt")
 
     def extractData(self):
         """
@@ -35,10 +36,10 @@ class RegistrationFormForm(EasyFormForm):
         but z3cform gives it a strange value in the form
         """
         data, errors = super(RegistrationFormForm, self).extractData()
-        field_id = 'waiting_list'
-        if self.request.form.get('form.widgets.waiting_list', '') == [
-            u'selected',
-            u'unselected',
+        field_id = "waiting_list"
+        if self.request.form.get("form.widgets.waiting_list", "") == [
+            u"selected",
+            u"unselected",
         ]:
             data[field_id] = False
         return data, errors
@@ -72,15 +73,13 @@ class RegistrationFormForm(EasyFormForm):
                 doit = get_expression(self.context, execCondition)
             else:
                 doit = True
-            if doit and hasattr(action, 'onSuccess'):
+            if doit and hasattr(action, "onSuccess"):
                 if IRegistrantData.providedBy(action):
                     result = action.onSuccess(
                         fields,
                         self.request,
-                        max_attendees=getattr(self.context, 'max_attendees', 0),
-                        waiting_list_size=getattr(
-                            self.context, 'waiting_list_size', 0
-                        ),
+                        max_attendees=getattr(self.context, "max_attendees", 0),
+                        waiting_list_size=getattr(self.context, "waiting_list_size", 0),
                     )
                 else:
                     result = action.onSuccess(fields, self.request)
@@ -89,14 +88,14 @@ class RegistrationFormForm(EasyFormForm):
 
     @memoize
     def get_form_status(self):
-        res = {'active': True}
+        res = {"active": True}
         dates_status_error = self.get_dates_status_error()
         if dates_status_error:
-            res['active'] = False
+            res["active"] = False
             res.update(dates_status_error)
             return res
-        max_attendees = getattr(self.context, 'max_attendees', 0)
-        waiting_list_size = getattr(self.context, 'waiting_list_size', 0)
+        max_attendees = getattr(self.context, "max_attendees", 0)
+        waiting_list_size = getattr(self.context, "waiting_list_size", 0)
         if not max_attendees:
             # no limit
             return res
@@ -107,100 +106,99 @@ class RegistrationFormForm(EasyFormForm):
             if registrants_data.waiting_list_is_open(
                 max_attendees=max_attendees, waiting_list_size=waiting_list_size
             ):
-                res['status_message'] = self.set_status_message(
+                res["status_message"] = self.set_status_message(
                     message=_(
-                        'message_waiting_list_open',
-                        default=u'You can subscribe anyway and enter'
-                        u' to a waiting list. '
-                        u'We will contact you in case some '
-                        u'participants will cancel their subscription.',
+                        "message_waiting_list_open",
+                        default=u"You can subscribe anyway and enter"
+                        u" to a waiting list. "
+                        u"We will contact you in case some "
+                        u"participants will cancel their subscription.",
                     ),
                     strong_message=_(
-                        'message_waiting_list_open_strong',
-                        default=u'Attendees limit reached.',
+                        "message_waiting_list_open_strong",
+                        default=u"Attendees limit reached.",
                     ),
-                    type='warning',
+                    type="warning",
                 )
             else:
-                res['active'] = False
-                res['status_message'] = self.set_status_message(
+                res["active"] = False
+                res["status_message"] = self.set_status_message(
                     message=_(
-                        'message_attendees_limit_reached',
-                        default=u'Attendees limit reached.',
+                        "message_attendees_limit_reached",
+                        default=u"Attendees limit reached.",
                     ),
-                    type='error',
+                    type="error",
                 )
         return res
 
     def get_dates_status_error(self):
-        open_date = getattr(self.context, 'open_date', None)
-        close_date = getattr(self.context, 'close_date', None)
+        open_date = getattr(self.context, "open_date", None)
+        close_date = getattr(self.context, "close_date", None)
         now = datetime.now(pytz.timezone(default_timezone()))
         res = {}
         if not open_date and not close_date:
             return res
         if not open_date:
             if now > close_date:
-                res['status_message'] = self.close_past_msg(close_date)
+                res["status_message"] = self.close_past_msg(close_date)
             return res
         elif not close_date:
             if now < open_date:
-                res['status_message'] = self.open_future_msg(open_date)
+                res["status_message"] = self.open_future_msg(open_date)
             return res
         if not open_date < now < close_date:
             # too early or too late
-            res['active'] = False
+            res["active"] = False
             if open_date > now:
-                res['status_message'] = self.open_future_msg(open_date)
+                res["status_message"] = self.open_future_msg(open_date)
             elif close_date < now:
-                res['status_message'] = self.close_past_msg(close_date)
+                res["status_message"] = self.close_past_msg(close_date)
         return res
 
     def open_future_msg(self, date):
         return self.set_status_message(
             message=_(
-                'message_open_date_future',
-                default=u'Registration opening on ${date} at ${hour}.',
+                "message_open_date_future",
+                default=u"Registration opening on ${date} at ${hour}.",
                 mapping={
-                    'date': api.portal.get_localized_time(datetime=date),
-                    'hour': date.time().strftime('%H:%M'),
+                    "date": api.portal.get_localized_time(datetime=date),
+                    "hour": date.time().strftime("%H:%M"),
                 },
             ),
-            type='warning',
+            type="warning",
         )
 
     def close_past_msg(self, date):
         return self.set_status_message(
             message=_(
-                'message_close_date_past',
-                default=u'Registration ended on ${date} at ${hour}.',
+                "message_close_date_past",
+                default=u"Registration ended on ${date} at ${hour}.",
                 mapping={
-                    'date': api.portal.get_localized_time(datetime=date),
-                    'hour': date.time().strftime('%H:%M'),
+                    "date": api.portal.get_localized_time(datetime=date),
+                    "hour": date.time().strftime("%H:%M"),
                 },
             ),
-            type='error',
+            type="error",
         )
 
-    def set_status_message(self, message, type, strong_message=''):
+    def set_status_message(self, message, type, strong_message=""):
         if not strong_message:
             strong_message = _(
-                'registration_form_error',
-                default=u'You can\'t subscribe to this form.',
+                "registration_form_error", default=u"You can't subscribe to this form.",
             )
         return {
-            'type': type,
-            'message': message,
-            'strong_message': strong_message,
+            "type": type,
+            "message": message,
+            "strong_message": strong_message,
         }
 
     @property
     def available_seats(self):
-        max_attendees = getattr(self.context, 'max_attendees', None)
+        max_attendees = getattr(self.context, "max_attendees", None)
         data = self.registrants_data
         registrants = 0
         for registrant in data._storage.values():
-            if not registrant.get('waiting_list', False):
+            if not registrant.get("waiting_list", False):
                 registrants += 1
         return max_attendees - registrants
 
