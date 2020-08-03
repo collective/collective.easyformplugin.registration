@@ -46,7 +46,7 @@ setup(
         "collective.easyform[recaptcha]>=3.0.1",
         "lxml",
     ],
-    extras_require={"test": ["plone.app.testing"]},
+    extras_require={"test": ["plone.app.testing", "plone.app.contenttypes[test]"]},
     entry_points="""
     [z3c.autoinclude.plugin]
     target = plone
