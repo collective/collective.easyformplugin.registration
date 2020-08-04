@@ -46,7 +46,7 @@ msgstr ""
 
 #: ../browser/contact_registrants_view.py:28
 msgid "Message"
-msgstr "Nachhricht"
+msgstr "Nachricht"
 
 #: ../browser/contact_registrants_view.py:31
 msgid "Registrants"
