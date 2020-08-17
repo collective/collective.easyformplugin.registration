@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-02-05 14:36+0000\n"
+"POT-Creation-Date: 2020-07-29 14:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,6 +21,14 @@ msgstr ""
 msgid "Adds the ability to use an EasyForm content as registration form."
 msgstr ""
 
+#: ../configure.zcml:23
+msgid "Collective Easyform: Registration plugin"
+msgstr ""
+
+#: ../configure.zcml:32
+msgid "Collective Easyform: Registration plugin (uninstall)"
+msgstr ""
+
 #: ../profiles/default/actions.xml
 msgid "Contact registrants"
 msgstr ""
@@ -29,19 +37,19 @@ msgstr ""
 msgid "Installs the collective.easyformplugin.registration add-on."
 msgstr ""
 
-#: ../browser/contact_registrants_view.py:47
+#: ../browser/contact_registrants_view.py:45
 msgid "List of people in waiting list that compiled email fields (could be one of these fields: email, e-mail, replyto)."
 msgstr ""
 
-#: ../browser/contact_registrants_view.py:34
+#: ../browser/contact_registrants_view.py:32
 msgid "List of registered people that compiled email fields (could be one of these fields: email, e-mail, replyto)."
 msgstr ""
 
-#: ../browser/contact_registrants_view.py:30
+#: ../browser/contact_registrants_view.py:28
 msgid "Message"
 msgstr ""
 
-#: ../browser/contact_registrants_view.py:33
+#: ../browser/contact_registrants_view.py:31
 msgid "Registrants"
 msgstr ""
 
@@ -53,15 +61,15 @@ msgstr ""
 msgid "Registration form"
 msgstr ""
 
-#: ../browser/contact_registrants_view.py:113
+#: ../browser/contact_registrants_view.py:111
 msgid "Reset"
 msgstr ""
 
-#: ../browser/contact_registrants_view.py:29
+#: ../browser/contact_registrants_view.py:27
 msgid "Subject"
 msgstr ""
 
-#: ../browser/contact_registrants_view.py:72
+#: ../browser/contact_registrants_view.py:70
 msgid "Submit"
 msgstr ""
 
@@ -69,7 +77,7 @@ msgstr ""
 msgid "Uninstalls the collective.easyformplugin.registration add-on."
 msgstr ""
 
-#: ../browser/contact_registrants_view.py:46
+#: ../browser/contact_registrants_view.py:44
 msgid "Waiting list"
 msgstr ""
 
@@ -78,26 +86,18 @@ msgstr ""
 msgid "available_seats_label"
 msgstr ""
 
-#: ../configure.zcml:23
-msgid "collective.easyformplugin.registration"
-msgstr ""
-
-#: ../configure.zcml:32
-msgid "collective.easyformplugin.registration (uninstall)"
-msgstr ""
-
 #. Default: "You need to select at least one recipient from registrants or waiting_list list."
-#: ../browser/contact_registrants_view.py:82
+#: ../browser/contact_registrants_view.py:80
 msgid "contact_recipients_error"
 msgstr ""
 
 #. Default: "Emails sent."
-#: ../browser/contact_registrants_view.py:100
+#: ../browser/contact_registrants_view.py:98
 msgid "contact_recipients_sent"
 msgstr ""
 
 #. Default: "Unable to send messages. Action not found in Form."
-#: ../browser/contact_registrants_view.py:127
+#: ../browser/contact_registrants_view.py:125
 msgid "contact_registrants_action_not_found"
 msgstr ""
 
@@ -122,12 +122,12 @@ msgid "help_max_attendees"
 msgstr ""
 
 #. Default: "Pick any extra data you'd like saved with the form input."
-#: ../interfaces.py:43
+#: ../interfaces.py:44
 msgid "help_savedataextra_text"
 msgstr ""
 
 #. Default: "Pick the fields whose inputs you'd like to include in the saved data. If empty, all fields will be saved."
-#: ../interfaces.py:31
+#: ../interfaces.py:32
 msgid "help_savefields_text"
 msgstr ""
 
@@ -172,17 +172,17 @@ msgid "label_max_attendees"
 msgstr ""
 
 #. Default: "Registrant Data"
-#: ../actions.py:101
+#: ../actions.py:100
 msgid "label_registrant_data_action"
 msgstr ""
 
 #. Default: "Extra Data"
-#: ../interfaces.py:42
+#: ../interfaces.py:43
 msgid "label_savedataextra_text"
 msgstr ""
 
 #. Default: "Saved Fields"
-#: ../interfaces.py:30
+#: ../interfaces.py:31
 msgid "label_savefields_text"
 msgstr ""
 
@@ -212,32 +212,32 @@ msgid "label_waiting_list_size"
 msgstr ""
 
 #. Default: "Attendees limit reached."
-#: ../browser/view.py:127
+#: ../browser/view.py:126
 msgid "message_attendees_limit_reached"
 msgstr ""
 
 #. Default: "Registration ended on ${date} at ${hour}."
-#: ../browser/view.py:174
+#: ../browser/view.py:173
 msgid "message_close_date_past"
 msgstr ""
 
 #. Default: "Registration opening on ${date} at ${hour}."
-#: ../browser/view.py:161
+#: ../browser/view.py:160
 msgid "message_open_date_future"
 msgstr ""
 
 #. Default: "You can subscribe anyway and enter to a waiting list. We will contact you in case some participants will cancel their subscription."
-#: ../browser/view.py:111
+#: ../browser/view.py:110
 msgid "message_waiting_list_open"
 msgstr ""
 
 #. Default: "Attendees limit reached."
-#: ../browser/view.py:118
+#: ../browser/view.py:117
 msgid "message_waiting_list_open_strong"
 msgstr ""
 
 #. Default: "You can't subscribe to this form."
-#: ../browser/view.py:187
+#: ../browser/view.py:186
 msgid "registration_form_error"
 msgstr ""
 

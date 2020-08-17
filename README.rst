@@ -34,6 +34,7 @@ This product has been translated into
 
 - English
 - Italian
+- German
 
 
 Installation
@@ -54,6 +55,9 @@ and then running ``bin/buildout``
 
 Contribute
 ----------
+
+.. image:: https://github.com/collective/collective.easyformplugin.registration/workflows/Test/badge.svg
+    :target: https://github.com/collective/collective.easyformplugin.registration/actions?query=workflow%3A%22Test%22
 
 - Issue Tracker: https://github.com/collective/collective.easyformplugin.registration/issues
 - Source Code: https://github.com/collective/collective.easyformplugin.registration

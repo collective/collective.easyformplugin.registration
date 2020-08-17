@@ -8,7 +8,7 @@
       <description/>
       <showFields/>
       <title>Registrants</title>
-      <description>DO NOT REMOVE</description>
+      <description>Storage of registrants.</description>
       <required>True</required>
     </field>
   </schema>

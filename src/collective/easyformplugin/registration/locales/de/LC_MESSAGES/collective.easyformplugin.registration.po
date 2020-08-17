@@ -1,248 +1,246 @@
-# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# SOME DESCRIPTIVE TITLE.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: 1\n"
 "POT-Creation-Date: 2020-07-29 14:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: Jens Klein <jens@bluedynamics.com>\n"
+"Language-Team: DE Jens Klein <jens@bluedynamics.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: de\n"
+"Language-Name: Deutsch\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: collective.easyformplugin.registration\n"
+"Domain: plone\n"
+"X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
+"Language: de\n"
 
 #: ../configure.zcml:55
 msgid "Adds the ability to use an EasyForm content as registration form."
-msgstr "Aggiunge la possibilità di usare un form EasyForm come form di iscrizione per eventi."
+msgstr "Ergänzt EasyForm um die Möglichkeit es als Registrierungsformular zu verwenden"
 
 #: ../configure.zcml:23
 msgid "Collective Easyform: Registration plugin"
-msgstr ""
+msgstr "Collective Easyform: Registrierungserweiterung"
 
 #: ../configure.zcml:32
 msgid "Collective Easyform: Registration plugin (uninstall)"
-msgstr ""
+msgstr "Collective Easyform: Registrierungserweiterung (deinstallieren)"
 
 #: ../profiles/default/actions.xml
 msgid "Contact registrants"
-msgstr "Contatta iscritti"
+msgstr "Kontaktiere Registrantinnen und Registranten"
 
 #: ../configure.zcml:23
 msgid "Installs the collective.easyformplugin.registration add-on."
-msgstr ""
+msgstr "Installiert die collective.easyformplugin.registration Erweiterung"
 
 #: ../browser/contact_registrants_view.py:45
 msgid "List of people in waiting list that compiled email fields (could be one of these fields: email, e-mail, replyto)."
-msgstr "Elenco di persone in lista di attesa che hanno compilato un campo email (può essere uno di questi campi: email, e-mail, replyto)."
+msgstr ""
 
 #: ../browser/contact_registrants_view.py:32
 msgid "List of registered people that compiled email fields (could be one of these fields: email, e-mail, replyto)."
-msgstr "Elenco di iscritti che hanno compilato un campo email (può essere uno di questi campi: email, e-mail, replyto)."
+msgstr ""
 
 #: ../browser/contact_registrants_view.py:28
 msgid "Message"
-msgstr "Messaggio"
+msgstr "Nachricht"
 
 #: ../browser/contact_registrants_view.py:31
 msgid "Registrants"
-msgstr "Iscritti"
+msgstr "Registrant"
 
 #: ../behavior.py:86
 msgid "Registration"
-msgstr "Registrazione"
+msgstr "Registrierung"
 
 #: ../configure.zcml:55
 msgid "Registration form"
-msgstr "Form di registrazione"
+msgstr "Registrierungsformular"
 
 #: ../browser/contact_registrants_view.py:111
 msgid "Reset"
-msgstr "Annulla"
+msgstr "Zurücksetzen"
 
 #: ../browser/contact_registrants_view.py:27
 msgid "Subject"
-msgstr "Oggetto"
+msgstr "Betreff"
 
 #: ../browser/contact_registrants_view.py:70
 msgid "Submit"
-msgstr "Invia"
+msgstr "Absenden"
 
 #: ../configure.zcml:32
 msgid "Uninstalls the collective.easyformplugin.registration add-on."
-msgstr ""
+msgstr "Deinstalliert die collective.easyformplugin.registration Erweiterung"
 
 #: ../browser/contact_registrants_view.py:44
 msgid "Waiting list"
-msgstr "Lista d'attesa"
+msgstr "Warteliste"
 
 #. Default: "Available seats: ${seats}"
 #: ../browser/registration_form.pt:31
 msgid "available_seats_label"
-msgstr "Posti disponibili: ${seats}"
+msgstr "Verfügbare Plätze: ${seats}"
 
 #. Default: "You need to select at least one recipient from registrants or waiting_list list."
 #: ../browser/contact_registrants_view.py:80
 msgid "contact_recipients_error"
-msgstr "Devi selezionare almeno un destinatario tra gli iscritti e la lista d'attesa."
+msgstr "Sie müssen mindestens einen Empfänger aus der Liste der Registranten auswählen."
 
 #. Default: "Emails sent."
 #: ../browser/contact_registrants_view.py:98
 msgid "contact_recipients_sent"
-msgstr "Email spedite."
+msgstr "E-Mail wurde verschickt."
 
 #. Default: "Unable to send messages. Action not found in Form."
 #: ../browser/contact_registrants_view.py:125
 msgid "contact_registrants_action_not_found"
-msgstr "Impossibile inviare i messaggi. Azione non trovata nel form."
+msgstr "Es war nicht möglich die Nachrichte zu versenden. Die Aktion wurde im Formular nicht gefunden."
 
 #. Default: "In this page you can send a message to registrants."
 #: ../browser/contact_registrants_view.pt:16
 msgid "contact_registrants_help"
-msgstr "In questa pagina puoi inviare un messaggio agli iscritti."
+msgstr "Auf dieser Seite können Sie Nachrichten an die Registrantinnen und Registranten verschicken."
 
 #. Default: "Contact registrants"
 #: ../browser/contact_registrants_view.pt:11
 msgid "contact_registrants_label"
-msgstr "Contatta gli iscritti"
+msgstr "Kontaktiere Registranten"
 
 #. Default: "Select if this form is a registration form. If selected, will be created a new form action (registrants) and a new hidden field (waiting_list). If one of these two defaults is missing, the registration form can't work properly."
 #: ../behavior.py:20
 msgid "help_is_registration_form"
-msgstr "Seleziona se il form è un form di registrazione. Se attivato, verrà creata una nuova azione del form (registrants) e un nuovo campo nascosto (waiting_list). Se una di queste due impsotazioni manca, il form non potrà funzionare correttamente."
+msgstr "Auswählen, wenn dieses Formular als Registrierungsformular verwendet werden soll. Falls ausgewählt so wird eine neue Formularaktion (Registranten) und eine neues verstecktes Feld (Warteliste) erstellt. Wenn eine dieser beiden Vorgabefelder fehlt kann das Form nicht ordungsgemäß funktionieren."
 
 #. Default: "Set a maximum number of attendees for this registration form. Leave empty for unlimited."
 #: ../behavior.py:31
 msgid "help_max_attendees"
-msgstr "Imposta un numero massimo di iscritti a questo form. Se lasciato vuoto, non ci sarà limite."
+msgstr "Setzen eine maximale Anzahl an Teilnehmern für dieses Registrierungsformular. Leer lassen für keine Begrenzung."
 
 #. Default: "Pick any extra data you'd like saved with the form input."
 #: ../interfaces.py:44
 msgid "help_savedataextra_text"
-msgstr "Selezione dei dati extra che vuoi salvare insieme ai campi del form."
+msgstr "Wähle Sie weitere Daten aus, die zusätzlich zu den Formulareingaben gespeichert werden sollen."
 
 #. Default: "Pick the fields whose inputs you'd like to include in the saved data. If empty, all fields will be saved."
 #: ../interfaces.py:32
 msgid "help_savefields_text"
-msgstr "Seleziona i campi del form che vuoi includere nei dati salvati. Se vuoto, tutti i campi verranno salvati."
+msgstr "Wählen Sie die Felder, deren Eingaben in den gespeicherten Daten gespeichert werden sollen. Falls leer werden alle Felder gespeichert."
 
 #. Default: "Allows to show in the subscription page how many seats are still available. Waiting list seats are not counted."
 #: ../behavior.py:51
 msgid "help_show_seats_left"
-msgstr "Permette di mostrare nel form quanti posti liberi ci sono ancora. La lista d'attesa non è conteggiata."
+msgstr "Erlaubt es Ihnen mit dem Registrierungsformular anzuzeigen, wie viele Plätze noch frei sind. Wartelistenplätze werden nicht mitgezählt."
 
 #. Default: "Date and Time, when the registration form closes."
 #: ../behavior.py:73
 msgid "help_subscription_close_date"
-msgstr "Data e orario di chiusura delle iscrizioni."
+msgstr "Datum und Uhrzeit, wenn die Registrierung geschlossen werden soll."
 
 #. Default: "Date and Time, when the registration form opens."
 #: ../behavior.py:60
 msgid "help_subscription_open_date"
-msgstr "Data e orario dell'apertura delle iscrizioni."
+msgstr "Datum und Uhrzeit, wenn die Registrierung eröffnet werden soll."
 
 #. Default: "Do you wish to have column names on the first line of downloaded input?"
 #: ../interfaces.py:58
 msgid "help_usecolumnnames_text"
-msgstr "Vuoi mostrare i nomi delle colonne nella prima riga del file esportato?"
+msgstr "Möchten Sie Spaltenüberschriften in der ersten Zeile der heruntergeladenen Daten haben?"
 
 #. Default: "Set a number of available seats in waiting list. Leave empty for disable the waiting list."
 #: ../behavior.py:41
-#, fuzzy
 msgid "help_waiting_list_size"
-msgstr "Imposta un numero di iscritti che possono entrare nella lista d'attesa. Se lasciato vuoto non sarà prevista nessuna lista d'attesa."
+msgstr "Geben Sie an wie viele Wartelistenplätze es geben soll. Leer lassen um die Wartelistenfunktion abzuschalten."
 
 #. Default: "Download Format"
 #: ../interfaces.py:52
 msgid "label_downloadformat_text"
-msgstr "Formato download"
+msgstr "Format des Downloads"
 
 #. Default: "Registration form"
 #: ../behavior.py:19
 msgid "label_is_registration_form"
-msgstr "Form di registrazione"
+msgstr "Registrierungsformular"
 
 #. Default: "Max attendees"
 #: ../behavior.py:30
 msgid "label_max_attendees"
-msgstr "Numero massimo di iscritti"
+msgstr "Max. Teilnehmerzahl"
 
 #. Default: "Registrant Data"
 #: ../actions.py:100
 msgid "label_registrant_data_action"
-msgstr "Dati iscritti"
+msgstr "Registrantendaten"
 
 #. Default: "Extra Data"
 #: ../interfaces.py:43
 msgid "label_savedataextra_text"
-msgstr "Dati extra"
+msgstr "Extra Daten"
 
 #. Default: "Saved Fields"
 #: ../interfaces.py:31
 msgid "label_savefields_text"
-msgstr "Campi salvati"
+msgstr "Gespeicherte Felder"
 
 #. Default: "Show seats left"
 #: ../behavior.py:50
 msgid "label_show_seats_left"
-msgstr "Mostra i posti disponibili"
+msgstr "Zeige verfügbare Plätze"
 
 #. Default: "Close date"
 #: ../behavior.py:72
 msgid "label_subscription_close_date"
-msgstr "Data di chiusura"
+msgstr "Registrierungsschluss"
 
 #. Default: "Open date"
 #: ../behavior.py:59
 msgid "label_subscription_open_date"
-msgstr "Data di apertura"
+msgstr "Registrierungseröffnung"
 
 #. Default: "Include Column Names"
 #: ../interfaces.py:57
 msgid "label_usecolumnnames_text"
-msgstr "Includi i nomi delle colonne"
+msgstr "Spaltenüberschriften ausgeben"
 
 #. Default: "Waiting list size"
 #: ../behavior.py:40
 msgid "label_waiting_list_size"
-msgstr "Numero di posti in lista d'attesa"
+msgstr "Anzahl Wartelistenplätze"
 
 #. Default: "Attendees limit reached."
 #: ../browser/view.py:126
 msgid "message_attendees_limit_reached"
-msgstr "Numero massimo di iscritti raggiunto."
+msgstr "Maximale Teilnehmerzahl erreicht."
 
 #. Default: "Registration ended on ${date} at ${hour}."
 #: ../browser/view.py:173
 msgid "message_close_date_past"
-msgstr "La registrazione si è conclusa il ${date} alle ${hour}."
+msgstr "Die Registrierung endete am ${date} um ${hour}."
 
 #. Default: "Registration opening on ${date} at ${hour}."
 #: ../browser/view.py:160
 msgid "message_open_date_future"
-msgstr "La registrazione verrà aperta il ${date} alle ${hour}."
+msgstr "Die Registrierung wird am ${date} um ${hour} eröffnet."
 
 #. Default: "You can subscribe anyway and enter to a waiting list. We will contact you in case some participants will cancel their subscription."
 #: ../browser/view.py:110
 msgid "message_waiting_list_open"
-msgstr "Puoi iscriverti lo stesso ed entrare in una lista d'attesa. Ti ricontatteremo nel caso qualche partecipante cancelli la sua iscrizione."
+msgstr "Sie können sich dennoch auf der Warteliste registrieren. Wir werden Sie kontaktieren falls ein Teilnehmer die Registrierung storniert."
 
 #. Default: "Attendees limit reached."
 #: ../browser/view.py:117
 msgid "message_waiting_list_open_strong"
-msgstr "Limite massimo di partecipanti raggiunto."
+msgstr "Die Warteliste ist voll. "
 
 #. Default: "You can't subscribe to this form."
 #: ../browser/view.py:186
 msgid "registration_form_error"
-msgstr "Non puoi iscriverti al momento."
+msgstr "Sie können sich nicht mit diesem Formular registrieren."
 
 #. Default: "Return to form"
 #: ../browser/contact_registrants_view.pt:22
 msgid "return_to_form_label"
-msgstr "Ritorna al form"
+msgstr "Zurück zum Formular"
