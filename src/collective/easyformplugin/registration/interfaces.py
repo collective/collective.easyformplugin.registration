@@ -25,40 +25,6 @@ class IRegistrantDataFormWrapper(IFormWrapper):
 
 class IRegistrantData(ISaveData):
 
-    """ """
+    """Own Interface for registrants  """
+    # no extra fields so far.
 
-    showFields = zope.schema.List(
-        title=_(u"label_savefields_text", default=u"Saved Fields"),
-        description=_(
-            u"help_savefields_text",
-            default=u"Pick the fields whose inputs you'd like to include in "
-            u"the saved data. If empty, all fields will be saved.",
-        ),
-        unique=True,
-        required=False,
-        value_type=zope.schema.Choice(vocabulary="easyform.Fields"),
-    )
-    directives.widget(ExtraData=CheckBoxFieldWidget)
-    ExtraData = zope.schema.List(
-        title=_(u"label_savedataextra_text", default="Extra Data"),
-        description=_(
-            u"help_savedataextra_text",
-            default=u"Pick any extra data you'd like saved with the form " u"input.",
-        ),
-        unique=True,
-        value_type=zope.schema.Choice(vocabulary="easyform.ExtraDataDL"),
-    )
-    DownloadFormat = zope.schema.Choice(
-        title=_(u"label_downloadformat_text", default=u"Download Format"),
-        default=u"csv",
-        vocabulary="easyform.FormatDL",
-    )
-    UseColumnNames = zope.schema.Bool(
-        title=_(u"label_usecolumnnames_text", default=u"Include Column Names"),
-        description=_(
-            u"help_usecolumnnames_text",
-            default=u"Do you wish to have column names on the first line of "
-            u"downloaded input?",
-        ),
-        required=False,
-    )
