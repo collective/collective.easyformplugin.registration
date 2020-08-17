@@ -21,15 +21,6 @@ class RegistrantData(SaveData):
             setattr(self, i, kw.pop(i, f.default))
         super(RegistrantData, self).__init__(**kw)
 
-    @property
-    def _storage(self):
-        context = get_context(self)
-        if not hasattr(context, "_inputStorage"):
-            context._inputStorage = {}
-        if self.__name__ not in context._inputStorage:
-            context._inputStorage[self.__name__] = SavedDataBTree()
-        return context._inputStorage[self.__name__]
-
     def onSuccess(self, fields, request, max_attendees, waiting_list_size):
         """
         saves data. Ignore waiting_list value given from data.

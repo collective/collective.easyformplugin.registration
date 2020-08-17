@@ -6,7 +6,7 @@
       <description/>
       <required>False</required>
       <title>Waiting list</title>
-      <description>DO NOT REMOVE</description>
+      <description>Field to indicate registrants on the waiting list. Do not remove this field.</description>
       <default>False</default>
       <form:widget type="z3c.form.browser.radio.RadioFieldWidget"/>
     </field>

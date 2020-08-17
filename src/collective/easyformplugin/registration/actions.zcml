@@ -1,7 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     i18n_domain="collective.easyform">
-    
+
     <utility
         name="collective.easyformplugin.registration.actions.RegistrantData"
         component=".actions.RegistrantDataAction"
