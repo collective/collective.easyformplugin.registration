@@ -18,6 +18,7 @@ parts/
 src/*
 test.plone_addon/
 var/
+share/
 # files
 .installed.cfg
 .mr.developer.cfg
@@ -29,6 +30,7 @@ package.json
 pip-selfcheck.json
 report.html
 .vscode/
+pyvenv.cfg
 # excludes
 !.coveragerc
 !.editorconfig
