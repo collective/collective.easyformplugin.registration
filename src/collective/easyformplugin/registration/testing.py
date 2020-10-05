@@ -6,7 +6,6 @@ from plone.app.testing import (
     IntegrationTesting,
     PloneSandboxLayer,
 )
-from plone.testing import z2
 
 import collective.easyform
 import collective.easyformplugin.registration
