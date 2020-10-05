@@ -1,16 +1,15 @@
 <configure
-  xmlns="http://namespaces.zope.org/zope"
-  xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
 
-  <!-- -*- extra stuff goes here -*- -->
-  <!--<genericsetup:upgradeStep
-    source="*"
-    destination="1001"
-    title="Reload GS profiles"
-    description=""
-    profile="collective.easyformplugin.registration:default"
-    handler=".upgrades.reload_gs_profile"
-    />-->
+  <!-- 1000 -> 1001 -->
+  <genericsetup:upgradeStep
+      title="Rename Behavior Interface in FTI"
+      description="use new shortname of the behavior"
+      source="1000"
+      destination="1001"
+      handler="collective.easyformplugin.registration.upgrades.rename_behavior_interface"
+      profile="collective.easyformplugin.registration:default" />
 
 
 </configure>
