@@ -5,6 +5,9 @@ Changelog
 2.0.0 (unreleased)
 ------------------
 
+- Add Shortname for behavior
+  [1letter]
+
 - Update translation and add German language.
   [jensens]
 

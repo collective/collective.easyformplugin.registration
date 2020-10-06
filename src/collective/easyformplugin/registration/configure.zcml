@@ -18,8 +18,7 @@
       directory="profiles/default"
       description="Installs the collective.easyformplugin.registration add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"
-      post_handler=".setuphandlers.post_install"
-      />
+      post_handler=".setuphandlers.post_install" />
 
   <genericsetup:registerProfile
       name="uninstall"
@@ -27,40 +26,36 @@
       directory="profiles/uninstall"
       description="Uninstalls the collective.easyformplugin.registration add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"
-      post_handler=".setuphandlers.uninstall"
-      />
+      post_handler=".setuphandlers.uninstall" />
 
   <utility
       factory=".setuphandlers.HiddenProfiles"
-      name="collective.easyformplugin.registration-hiddenprofiles"
-      />
+      name="collective.easyformplugin.registration-hiddenprofiles" />
 
-    <!-- Behavior -->
-    <include package="plone.behavior" file="meta.zcml" />
-    <subscriber
-        for="collective.easyform.interfaces.easyform.IEasyForm
+  <!-- Behavior -->
+  <include
+      package="plone.behavior"
+      file="meta.zcml" />
+  <subscriber
+      for="collective.easyform.interfaces.easyform.IEasyForm
             zope.lifecycleevent.interfaces.IObjectModifiedEvent"
-        handler=".event.handle_edit_form"
-        />
-    <subscriber
-        for="collective.easyform.interfaces.easyform.IEasyForm
+      handler=".event.handle_edit_form" />
+  <subscriber
+      for="collective.easyform.interfaces.easyform.IEasyForm
             zope.lifecycleevent.interfaces.IObjectCreatedEvent"
-        handler=".event.handle_add_form"
-        />
-    <plone:behavior
-        title="Registration form"
-        description="Adds the ability to use an EasyForm content as registration form."
-        provides=".behavior.IRegistrationForm"
-        />
-    <!-- Declare marker interface, so that it is available in the Management Interface -->
-    <interface interface="collective.easyformplugin.registration.interfaces.IEasyFormRegistrationEnabled" />
+      handler=".event.handle_add_form" />
+  <plone:behavior
+      name="easyformplugin.registration"
+      title="Registration form"
+      description="Adds the ability to use an EasyForm content as registration form."
+      provides=".behavior.IRegistrationForm" />
+  <!-- Declare marker interface, so that it is available in the Management Interface -->
+  <interface interface="collective.easyformplugin.registration.interfaces.IEasyFormRegistrationEnabled" />
 
-    <utility
-        component=".vocabularies.registrants_vocabulary_factory"
-        name="collective.easyformplugin.registration.registrants"
-        />
-    <utility
-        component=".vocabularies.waiting_list_vocabulary_factory"
-        name="collective.easyformplugin.registration.waiting_list"
-        />
+  <utility
+      component=".vocabularies.registrants_vocabulary_factory"
+      name="collective.easyformplugin.registration.registrants" />
+  <utility
+      component=".vocabularies.waiting_list_vocabulary_factory"
+      name="collective.easyformplugin.registration.waiting_list" />
 </configure>
