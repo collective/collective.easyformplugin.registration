@@ -233,7 +233,7 @@ msgstr "Sie können sich dennoch auf der Warteliste registrieren. Wir werden Sie
 #. Default: "Attendees limit reached."
 #: ../browser/view.py:117
 msgid "message_waiting_list_open_strong"
-msgstr "Die Warteliste ist voll. "
+msgstr "Die maximale Teilnahmeranzahl ist erreicht. "
 
 #. Default: "You can't subscribe to this form."
 #: ../browser/view.py:186
