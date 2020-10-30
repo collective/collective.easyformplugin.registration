@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
-"POT-Creation-Date: 2020-07-29 14:11+0000\n"
+"POT-Creation-Date: 2020-09-30 22:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Jens Klein <jens@bluedynamics.com>\n"
 "Language-Team: DE Jens Klein <jens@bluedynamics.com>\n"
@@ -16,15 +16,15 @@ msgstr ""
 "X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
 "Language: de\n"
 
-#: ../configure.zcml:55
+#: ../configure.zcml:54
 msgid "Adds the ability to use an EasyForm content as registration form."
 msgstr "Ergänzt EasyForm um die Möglichkeit es als Registrierungsformular zu verwenden"
 
-#: ../configure.zcml:23
+#: ../configure.zcml:22
 msgid "Collective Easyform: Registration plugin"
 msgstr "Collective Easyform: Registrierungserweiterung"
 
-#: ../configure.zcml:32
+#: ../configure.zcml:31
 msgid "Collective Easyform: Registration plugin (uninstall)"
 msgstr "Collective Easyform: Registrierungserweiterung (deinstallieren)"
 
@@ -32,17 +32,17 @@ msgstr "Collective Easyform: Registrierungserweiterung (deinstallieren)"
 msgid "Contact registrants"
 msgstr "Kontaktiere Registrantinnen und Registranten"
 
-#: ../configure.zcml:23
+#: ../configure.zcml:22
 msgid "Installs the collective.easyformplugin.registration add-on."
 msgstr "Installiert die collective.easyformplugin.registration Erweiterung"
 
 #: ../browser/contact_registrants_view.py:45
 msgid "List of people in waiting list that compiled email fields (could be one of these fields: email, e-mail, replyto)."
-msgstr ""
+msgstr "Liste der Personen auf der Warteliste, die E-Mail-Felder zusammengestellt haben (könnte eines dieser Felder sein: E-Mail, E-Mail, Replyto)."
 
 #: ../browser/contact_registrants_view.py:32
 msgid "List of registered people that compiled email fields (could be one of these fields: email, e-mail, replyto)."
-msgstr ""
+msgstr "Liste der registrierten Personen, die E-Mail-Felder zusammengestellt haben (könnte eines dieser Felder sein: E-Mail, E-Mail, Replyto)."
 
 #: ../browser/contact_registrants_view.py:28
 msgid "Message"
@@ -56,7 +56,7 @@ msgstr "Registrant"
 msgid "Registration"
 msgstr "Registrierung"
 
-#: ../configure.zcml:55
+#: ../configure.zcml:54
 msgid "Registration form"
 msgstr "Registrierungsformular"
 
@@ -72,7 +72,7 @@ msgstr "Betreff"
 msgid "Submit"
 msgstr "Absenden"
 
-#: ../configure.zcml:32
+#: ../configure.zcml:31
 msgid "Uninstalls the collective.easyformplugin.registration add-on."
 msgstr "Deinstalliert die collective.easyformplugin.registration Erweiterung"
 
@@ -120,16 +120,6 @@ msgstr "Auswählen, wenn dieses Formular als Registrierungsformular verwendet we
 msgid "help_max_attendees"
 msgstr "Setzen eine maximale Anzahl an Teilnehmern für dieses Registrierungsformular. Leer lassen für keine Begrenzung."
 
-#. Default: "Pick any extra data you'd like saved with the form input."
-#: ../interfaces.py:44
-msgid "help_savedataextra_text"
-msgstr "Wähle Sie weitere Daten aus, die zusätzlich zu den Formulareingaben gespeichert werden sollen."
-
-#. Default: "Pick the fields whose inputs you'd like to include in the saved data. If empty, all fields will be saved."
-#: ../interfaces.py:32
-msgid "help_savefields_text"
-msgstr "Wählen Sie die Felder, deren Eingaben in den gespeicherten Daten gespeichert werden sollen. Falls leer werden alle Felder gespeichert."
-
 #. Default: "Allows to show in the subscription page how many seats are still available. Waiting list seats are not counted."
 #: ../behavior.py:51
 msgid "help_show_seats_left"
@@ -145,20 +135,10 @@ msgstr "Datum und Uhrzeit, wenn die Registrierung geschlossen werden soll."
 msgid "help_subscription_open_date"
 msgstr "Datum und Uhrzeit, wenn die Registrierung eröffnet werden soll."
 
-#. Default: "Do you wish to have column names on the first line of downloaded input?"
-#: ../interfaces.py:58
-msgid "help_usecolumnnames_text"
-msgstr "Möchten Sie Spaltenüberschriften in der ersten Zeile der heruntergeladenen Daten haben?"
-
 #. Default: "Set a number of available seats in waiting list. Leave empty for disable the waiting list."
 #: ../behavior.py:41
 msgid "help_waiting_list_size"
 msgstr "Geben Sie an wie viele Wartelistenplätze es geben soll. Leer lassen um die Wartelistenfunktion abzuschalten."
-
-#. Default: "Download Format"
-#: ../interfaces.py:52
-msgid "label_downloadformat_text"
-msgstr "Format des Downloads"
 
 #. Default: "Registration form"
 #: ../behavior.py:19
@@ -171,19 +151,9 @@ msgid "label_max_attendees"
 msgstr "Max. Teilnehmerzahl"
 
 #. Default: "Registrant Data"
-#: ../actions.py:100
+#: ../actions.py:91
 msgid "label_registrant_data_action"
 msgstr "Registrantendaten"
-
-#. Default: "Extra Data"
-#: ../interfaces.py:43
-msgid "label_savedataextra_text"
-msgstr "Extra Daten"
-
-#. Default: "Saved Fields"
-#: ../interfaces.py:31
-msgid "label_savefields_text"
-msgstr "Gespeicherte Felder"
 
 #. Default: "Show seats left"
 #: ../behavior.py:50
@@ -199,11 +169,6 @@ msgstr "Registrierungsschluss"
 #: ../behavior.py:59
 msgid "label_subscription_open_date"
 msgstr "Registrierungseröffnung"
-
-#. Default: "Include Column Names"
-#: ../interfaces.py:57
-msgid "label_usecolumnnames_text"
-msgstr "Spaltenüberschriften ausgeben"
 
 #. Default: "Waiting list size"
 #: ../behavior.py:40
