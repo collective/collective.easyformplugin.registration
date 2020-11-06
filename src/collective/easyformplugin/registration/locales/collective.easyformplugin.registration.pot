@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2020-07-29 14:11+0000\n"
+"POT-Creation-Date: 2020-09-30 22:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.easyformplugin.registration\n"
 
-#: ../configure.zcml:55
+#: ../configure.zcml:54
 msgid "Adds the ability to use an EasyForm content as registration form."
 msgstr ""
 
-#: ../configure.zcml:23
+#: ../configure.zcml:22
 msgid "Collective Easyform: Registration plugin"
 msgstr ""
 
-#: ../configure.zcml:32
+#: ../configure.zcml:31
 msgid "Collective Easyform: Registration plugin (uninstall)"
 msgstr ""
 
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Contact registrants"
 msgstr ""
 
-#: ../configure.zcml:23
+#: ../configure.zcml:22
 msgid "Installs the collective.easyformplugin.registration add-on."
 msgstr ""
 
@@ -57,7 +57,7 @@ msgstr ""
 msgid "Registration"
 msgstr ""
 
-#: ../configure.zcml:55
+#: ../configure.zcml:54
 msgid "Registration form"
 msgstr ""
 
@@ -73,7 +73,7 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: ../configure.zcml:32
+#: ../configure.zcml:31
 msgid "Uninstalls the collective.easyformplugin.registration add-on."
 msgstr ""
 
@@ -121,16 +121,6 @@ msgstr ""
 msgid "help_max_attendees"
 msgstr ""
 
-#. Default: "Pick any extra data you'd like saved with the form input."
-#: ../interfaces.py:44
-msgid "help_savedataextra_text"
-msgstr ""
-
-#. Default: "Pick the fields whose inputs you'd like to include in the saved data. If empty, all fields will be saved."
-#: ../interfaces.py:32
-msgid "help_savefields_text"
-msgstr ""
-
 #. Default: "Allows to show in the subscription page how many seats are still available. Waiting list seats are not counted."
 #: ../behavior.py:51
 msgid "help_show_seats_left"
@@ -146,19 +136,9 @@ msgstr ""
 msgid "help_subscription_open_date"
 msgstr ""
 
-#. Default: "Do you wish to have column names on the first line of downloaded input?"
-#: ../interfaces.py:58
-msgid "help_usecolumnnames_text"
-msgstr ""
-
 #. Default: "Set a number of available seats in waiting list. Leave empty for disable the waiting list."
 #: ../behavior.py:41
 msgid "help_waiting_list_size"
-msgstr ""
-
-#. Default: "Download Format"
-#: ../interfaces.py:52
-msgid "label_downloadformat_text"
 msgstr ""
 
 #. Default: "Registration form"
@@ -172,18 +152,8 @@ msgid "label_max_attendees"
 msgstr ""
 
 #. Default: "Registrant Data"
-#: ../actions.py:100
+#: ../actions.py:91
 msgid "label_registrant_data_action"
-msgstr ""
-
-#. Default: "Extra Data"
-#: ../interfaces.py:43
-msgid "label_savedataextra_text"
-msgstr ""
-
-#. Default: "Saved Fields"
-#: ../interfaces.py:31
-msgid "label_savefields_text"
 msgstr ""
 
 #. Default: "Show seats left"
@@ -199,11 +169,6 @@ msgstr ""
 #. Default: "Open date"
 #: ../behavior.py:59
 msgid "label_subscription_open_date"
-msgstr ""
-
-#. Default: "Include Column Names"
-#: ../interfaces.py:57
-msgid "label_usecolumnnames_text"
 msgstr ""
 
 #. Default: "Waiting list size"
