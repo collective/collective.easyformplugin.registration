@@ -21,7 +21,7 @@ class RegistrantData(SaveData):
             setattr(self, i, kw.pop(i, f.default))
         super(RegistrantData, self).__init__(**kw)
 
-    def onSuccess(self, fields, request, max_attendees, waiting_list_size):
+    def onSuccess(self, fields, request, max_attendees=None, waiting_list_size=None):
         """
         saves data. Ignore waiting_list value given from data.
         """
