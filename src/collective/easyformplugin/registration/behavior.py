@@ -24,6 +24,7 @@ class IRegistrationForm(model.Schema):
             u" a new hidden field (waiting_list). If one of these two defaults"
             u" is missing, the registration form can't work properly.",
         ),
+        required=False
     )
 
     max_attendees = schema.Int(
@@ -53,6 +54,7 @@ class IRegistrationForm(model.Schema):
             default=u"Allows to show in the subscription page how many seats "
             u"are still available. Waiting list seats are not counted.",
         ),
+        required=False
     )
 
     open_date = schema.Datetime(
