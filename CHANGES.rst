@@ -5,6 +5,9 @@ Changelog
 2.0.0 (unreleased)
 ------------------
 
+- Update IRegistrationForm Schema
+  [1letter]
+  
 - Add Shortname for behavior
   [1letter]
 
