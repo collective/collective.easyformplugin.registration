@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.0.0 (unreleased)
+2.0.0 (2022-05-31)
 ------------------
 
 - Update IRegistrationForm Schema
