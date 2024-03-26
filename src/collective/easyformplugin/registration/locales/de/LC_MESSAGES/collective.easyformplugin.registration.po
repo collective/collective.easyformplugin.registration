@@ -30,7 +30,7 @@ msgstr "Collective Easyform: Registrierungserweiterung (deinstallieren)"
 
 #: ../profiles/default/actions.xml
 msgid "Contact registrants"
-msgstr "Kontaktiere Registrantinnen und Registranten"
+msgstr "Kontaktiere die Registrierten"
 
 #: ../configure.zcml:22
 msgid "Installs the collective.easyformplugin.registration add-on."
@@ -50,7 +50,7 @@ msgstr "Nachricht"
 
 #: ../browser/contact_registrants_view.py:31
 msgid "Registrants"
-msgstr "Registrant"
+msgstr "Registrierte"
 
 #: ../behavior.py:86
 msgid "Registration"
@@ -88,7 +88,7 @@ msgstr "Verfügbare Plätze: ${seats}"
 #. Default: "You need to select at least one recipient from registrants or waiting_list list."
 #: ../browser/contact_registrants_view.py:80
 msgid "contact_recipients_error"
-msgstr "Sie müssen mindestens einen Empfänger aus der Liste der Registranten auswählen."
+msgstr "Sie müssen mindestens einen Empfänger aus der Liste der Registrierten auswählen."
 
 #. Default: "Emails sent."
 #: ../browser/contact_registrants_view.py:98
@@ -103,7 +103,7 @@ msgstr "Es war nicht möglich die Nachrichte zu versenden. Die Aktion wurde im F
 #. Default: "In this page you can send a message to registrants."
 #: ../browser/contact_registrants_view.pt:16
 msgid "contact_registrants_help"
-msgstr "Auf dieser Seite können Sie Nachrichten an die Registrantinnen und Registranten verschicken."
+msgstr "Auf dieser Seite können Sie Nachrichten an die Registrierten verschicken."
 
 #. Default: "Contact registrants"
 #: ../browser/contact_registrants_view.pt:11
@@ -118,7 +118,7 @@ msgstr "Auswählen, wenn dieses Formular als Registrierungsformular verwendet we
 #. Default: "Set a maximum number of attendees for this registration form. Leave empty for unlimited."
 #: ../behavior.py:31
 msgid "help_max_attendees"
-msgstr "Setzen eine maximale Anzahl an Teilnehmern für dieses Registrierungsformular. Leer lassen für keine Begrenzung."
+msgstr "Setzen eine maximale Anzahl an Teilnehmenden für dieses Registrierungsformular. Leer lassen für keine Begrenzung."
 
 #. Default: "Allows to show in the subscription page how many seats are still available. Waiting list seats are not counted."
 #: ../behavior.py:51
@@ -148,12 +148,12 @@ msgstr "Registrierungsformular"
 #. Default: "Max attendees"
 #: ../behavior.py:30
 msgid "label_max_attendees"
-msgstr "Max. Teilnehmerzahl"
+msgstr "Max. Teilnehmendenzahl"
 
 #. Default: "Registrant Data"
 #: ../actions.py:91
 msgid "label_registrant_data_action"
-msgstr "Registrantendaten"
+msgstr "Daten der Registrierten"
 
 #. Default: "Show seats left"
 #: ../behavior.py:50
@@ -178,7 +178,7 @@ msgstr "Anzahl Wartelistenplätze"
 #. Default: "Attendees limit reached."
 #: ../browser/view.py:126
 msgid "message_attendees_limit_reached"
-msgstr "Maximale Teilnehmerzahl erreicht."
+msgstr "Maximale Teilnehmendenzahl erreicht."
 
 #. Default: "Registration ended on ${date} at ${hour}."
 #: ../browser/view.py:173
@@ -193,12 +193,12 @@ msgstr "Die Registrierung wird am ${date} um ${hour} eröffnet."
 #. Default: "You can subscribe anyway and enter to a waiting list. We will contact you in case some participants will cancel their subscription."
 #: ../browser/view.py:110
 msgid "message_waiting_list_open"
-msgstr "Sie können sich dennoch auf der Warteliste registrieren. Wir werden Sie kontaktieren falls ein Teilnehmer die Registrierung storniert."
+msgstr "Sie können sich dennoch auf der Warteliste registrieren. Wir werden Sie kontaktieren falls Teilnehmende die Registrierung stornieren."
 
 #. Default: "Attendees limit reached."
 #: ../browser/view.py:117
 msgid "message_waiting_list_open_strong"
-msgstr "Die maximale Teilnahmeranzahl ist erreicht. "
+msgstr "Die maximale Teilnehmendenanzahl ist erreicht. "
 
 #. Default: "You can't subscribe to this form."
 #: ../browser/view.py:186

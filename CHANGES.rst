@@ -5,7 +5,8 @@ Changelog
 2.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Enhanced gender forms of German translation.
+  [jensens]
 
 
 2.0.0 (2022-05-31)
@@ -13,7 +14,7 @@ Changelog
 
 - Update IRegistrationForm Schema
   [1letter]
-  
+
 - Add Shortname for behavior
   [1letter]
 
