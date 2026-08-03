@@ -5,6 +5,10 @@ Changelog
 2.0.1 (unreleased)
 ------------------
 
+- Fix adding of EasyForm field and action schemata from context with encoding
+  information.
+  [thet]
+
 - Enhanced gender forms of German translation.
   [jensens]
 
