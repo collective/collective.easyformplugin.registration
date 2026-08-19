@@ -1,12 +1,14 @@
-# -*- coding: utf-8 -*-
 """Setup tests for this package."""
+
 from collective.easyformplugin.registration.testing import (
     COLLECTIVE_EASYFORMPLUGIN_REGISTRATION_INTEGRATION_TESTING,
 )
 from plone import api
-from plone.app.testing import setRoles, TEST_USER_ID
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
 
 import unittest
+
 
 try:
     from Products.CMFPlone.utils import get_installer
@@ -46,7 +48,6 @@ class TestSetup(unittest.TestCase):
 
 
 class TestUninstall(unittest.TestCase):
-
     layer = COLLECTIVE_EASYFORMPLUGIN_REGISTRATION_INTEGRATION_TESTING
 
     def setUp(self):

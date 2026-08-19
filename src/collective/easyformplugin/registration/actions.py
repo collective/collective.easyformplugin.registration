@@ -1,13 +1,12 @@
-# -*- coding: utf-8 -*-
-from BTrees.LOBTree import LOBTree as SavedDataBTree
 from collective.easyform import easyformMessageFactory as _
-from collective.easyform.actions import ActionFactory, SaveData
-from collective.easyform.api import get_context
+from collective.easyform.actions import ActionFactory
+from collective.easyform.actions import SaveData
 from collective.easyformplugin.registration.interfaces import IRegistrantData
 from DateTime import DateTime
 from logging import getLogger
 from plone.supermodel.exportimport import BaseHandler
 from zope.interface import implementer
+
 
 logger = getLogger("collective.easyform")
 
@@ -19,7 +18,7 @@ class RegistrantData(SaveData):
     def __init__(self, **kw):
         for i, f in IRegistrantData.namesAndDescriptions():
             setattr(self, i, kw.pop(i, f.default))
-        super(RegistrantData, self).__init__(**kw)
+        super().__init__(**kw)
 
     def onSuccess(self, fields, request, max_attendees=None, waiting_list_size=None):
         """
@@ -72,7 +71,7 @@ class RegistrantData(SaveData):
     def has_reached_subscriptions_limit(self, max_attendees, waiting_list_size):
         if not max_attendees:
             return False
-        registrants, waiting_list = self.get_registrants()
+        registrants, _waiting_list = self.get_registrants()
         return registrants >= max_attendees
 
     def get_registrants(self):
@@ -88,7 +87,7 @@ class RegistrantData(SaveData):
 
 RegistrantDataAction = ActionFactory(
     RegistrantData,
-    _(u"label_registrant_data_action", default=u"Registrant Data"),
+    _("label_registrant_data_action", default="Registrant Data"),
     "collective.easyform.AddDataSavers",
 )
 

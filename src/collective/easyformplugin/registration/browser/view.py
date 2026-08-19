@@ -1,12 +1,9 @@
-# -*- coding: utf-8 -*-
-from collective.easyform.api import (
-    filter_fields,
-    get_actions,
-    get_expression,
-    set_actions,
-)
+from collective.easyform.api import filter_fields
+from collective.easyform.api import get_actions
+from collective.easyform.api import get_expression
 from collective.easyform.browser.view import EasyFormForm
-from collective.easyform.interfaces import IActionExtender, IEasyFormForm
+from collective.easyform.interfaces import IActionExtender
+from collective.easyform.interfaces import IEasyFormForm
 from collective.easyformplugin.registration import _
 from collective.easyformplugin.registration.interfaces import IRegistrantData
 from datetime import datetime
@@ -35,11 +32,11 @@ class RegistrationFormForm(EasyFormForm):
         workaround: waiting_list is an hiddend field with a default value,
         but z3cform gives it a strange value in the form
         """
-        data, errors = super(RegistrationFormForm, self).extractData()
+        data, errors = super().extractData()
         field_id = "waiting_list"
         if self.request.form.get("form.widgets.waiting_list", "") == [
-            u"selected",
-            u"unselected",
+            "selected",
+            "unselected",
         ]:
             data[field_id] = False
         return data, errors
@@ -50,7 +47,7 @@ class RegistrationFormForm(EasyFormForm):
         """
         omit = filter_fields(self.context, self.schema, data, omit=True)
         new_fields = []
-        for fname, field in fields.items():
+        for _fname, field in fields.items():
             if field.mode == HIDDEN_MODE:
                 continue
             new_fields.append(field)
@@ -63,16 +60,15 @@ class RegistrationFormForm(EasyFormForm):
     def processActions(self, fields):
         # get a list of adapters with no duplicates, retaining order
         actions = getFieldsInOrder(get_actions(self.context))
-        for name, action in actions:
+        for _name, action in actions:
             if not action.required:
                 continue
             # Now, see if we should execute it.
             # Check to see if execCondition exists and has contents
             execCondition = IActionExtender(action).execCondition
-            if execCondition:
-                doit = get_expression(self.context, execCondition)
-            else:
-                doit = True
+            doit = (
+                get_expression(self.context, execCondition) if execCondition else True
+            )
             if doit and hasattr(action, "onSuccess"):
                 if IRegistrantData.providedBy(action):
                     result = action.onSuccess(
@@ -109,25 +105,25 @@ class RegistrationFormForm(EasyFormForm):
                 res["status_message"] = self.set_status_message(
                     message=_(
                         "message_waiting_list_open",
-                        default=u"You can subscribe anyway and enter"
-                        u" to a waiting list. "
-                        u"We will contact you in case some "
-                        u"participants will cancel their subscription.",
+                        default="You can subscribe anyway and enter"
+                        " to a waiting list. "
+                        "We will contact you in case some "
+                        "participants will cancel their subscription.",
                     ),
                     strong_message=_(
                         "message_waiting_list_open_strong",
-                        default=u"Attendees limit reached.",
+                        default="Attendees limit reached.",
                     ),
-                    type="warning",
+                    message_type="warning",
                 )
             else:
                 res["active"] = False
                 res["status_message"] = self.set_status_message(
                     message=_(
                         "message_attendees_limit_reached",
-                        default=u"Attendees limit reached.",
+                        default="Attendees limit reached.",
                     ),
-                    type="error",
+                    message_type="error",
                 )
         return res
 
@@ -159,35 +155,36 @@ class RegistrationFormForm(EasyFormForm):
         return self.set_status_message(
             message=_(
                 "message_open_date_future",
-                default=u"Registration opening on ${date} at ${hour}.",
+                default="Registration opening on ${date} at ${hour}.",
                 mapping={
                     "date": api.portal.get_localized_time(datetime=date),
                     "hour": date.time().strftime("%H:%M"),
                 },
             ),
-            type="warning",
+            message_type="warning",
         )
 
     def close_past_msg(self, date):
         return self.set_status_message(
             message=_(
                 "message_close_date_past",
-                default=u"Registration ended on ${date} at ${hour}.",
+                default="Registration ended on ${date} at ${hour}.",
                 mapping={
                     "date": api.portal.get_localized_time(datetime=date),
                     "hour": date.time().strftime("%H:%M"),
                 },
             ),
-            type="error",
+            message_type="error",
         )
 
-    def set_status_message(self, message, type, strong_message=""):
+    def set_status_message(self, message, message_type, strong_message=""):
         if not strong_message:
             strong_message = _(
-                "registration_form_error", default=u"You can't subscribe to this form.",
+                "registration_form_error",
+                default="You can't subscribe to this form.",
             )
         return {
-            "type": type,
+            "type": message_type,
             "message": message,
             "strong_message": strong_message,
         }
@@ -204,7 +201,7 @@ class RegistrationFormForm(EasyFormForm):
 
     @property
     def registrants_data(self):
-        for name, action in getFieldsInOrder(get_actions(self.context)):
+        for _name, action in getFieldsInOrder(get_actions(self.context)):
             if IRegistrantData.providedBy(action) and action.required:
                 return action
 
