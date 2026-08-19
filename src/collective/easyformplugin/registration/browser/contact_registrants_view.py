@@ -2,6 +2,7 @@ from collective.easyform.api import get_actions
 from collective.easyformplugin.registration import _
 from collective.easyformplugin.registration.interfaces import IRegistrantData
 from email.mime.text import MIMEText
+from importlib.metadata import version
 from plone import api
 from plone.registry.interfaces import IRegistry
 from plone.supermodel import model
@@ -19,7 +20,6 @@ from zope.component import getUtility
 from zope.schema import getFieldsInOrder
 
 import logging
-import pkg_resources
 
 
 logger = logging.getLogger(__name__)
@@ -174,9 +174,7 @@ class ContactRegistrantsForm(form.Form):
             )
 
     def get_package_version(self):
-        return pkg_resources.get_distribution(
-            "collective.easyformplugin.registration"
-        ).version
+        return version("collective.easyformplugin.registration")
 
 
 ContactRegistrantsView = layout.wrap_form(
