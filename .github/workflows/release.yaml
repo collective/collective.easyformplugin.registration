@@ -33,7 +33,10 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - uses: hynek/build-and-inspect-python-package@v2
+      # v3 ships Twine 7, which understands packaging metadata 2.5 as written
+      # by current hatchling (v2 rejected it: "'2.5' is not a valid metadata
+      # version"). v3 no longer force-tags @v3, so pin the full version + SHA.
+      - uses: hynek/build-and-inspect-python-package@ca4f662c00175922957e4016528077a7cd324490 # v3.0.1
 
   release-test-pypi:
     name: Publish in-dev package to test.pypi.org
