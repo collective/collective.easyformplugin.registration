@@ -11,6 +11,12 @@ the version. There is no version string in any file to maintain manually.
 
 Both Test PyPI and PyPI use OIDC trusted publishing (no API tokens needed).
 
+> **Requires the *Owner* role on the project.** The publishing settings are not
+> available to Maintainers — if you only have the Maintainer role, ask an owner
+> to add the publisher (or to promote you). On a project that does not exist
+> yet, an owner can instead create a *pending publisher*, which is converted
+> into a regular one by the first successful upload.
+
 1. **Test PyPI**: https://test.pypi.org/manage/project/collective.easyformplugin.registration/settings/publishing/
    - Add a GitHub publisher: owner=`collective`,
      repo=`collective.easyformplugin.registration`,
@@ -26,6 +32,11 @@ Both Test PyPI and PyPI use OIDC trusted publishing (no API tokens needed).
    - `release-pypi` (optionally add required reviewers for extra safety)
 
 ## Making a Release
+
+Do not finalize the changelog heading before the PyPI publisher is in place —
+otherwise the repository claims a released version that cannot be uploaded.
+Until then, `master` keeps publishing dev builds to Test PyPI on every green
+CI run, which is a fine preview.
 
 ### 1. Finalize the changelog
 
