@@ -47,7 +47,11 @@ def updateActionsSchema(context):
     """
     schema = readSchemaFromFile(ACTIONS_DEFAULT_FILENAME)
     register_xml = etree.fromstring(schema)
-    form_xml = etree.fromstring(context.actions_model)
+    form_xml = etree.fromstring(
+        context.actions_model.encode("utf-8")
+        if isinstance(context.actions_model, str)
+        else context.actions_model
+    )
     action_names = loadString(context.actions_model).schema.names()
     new_fields = register_xml.findall(
         ".//{http://namespaces.plone.org/supermodel/schema}field"
@@ -67,7 +71,11 @@ def updateFieldsSchema(context):
     """
     schema = readSchemaFromFile(FIELDS_DEFAULT_FILENAME)
     register_xml = etree.fromstring(schema)
-    form_xml = etree.fromstring(context.fields_model)
+    form_xml = etree.fromstring(
+        context.fields_model.encode("utf-8")
+        if isinstance(context.fields_model, str)
+        else context.fields_model
+    )
     fields_names = loadString(context.fields_model).schema.names()
     new_fields = register_xml.findall(
         ".//{http://namespaces.plone.org/supermodel/schema}field"
