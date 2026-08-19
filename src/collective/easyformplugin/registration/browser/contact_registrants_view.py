@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
 from collective.easyform.api import get_actions
 from collective.easyformplugin.registration import _
 from collective.easyformplugin.registration.interfaces import IRegistrantData
 from email.mime.text import MIMEText
+from importlib.metadata import version
 from plone import api
 from plone.registry.interfaces import IRegistry
 from plone.supermodel import model
@@ -11,27 +11,29 @@ from Products.CMFPlone import PloneMessageFactory as pmf
 from Products.CMFPlone.interfaces.controlpanel import IMailSchema
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from smtplib import SMTPException
-from z3c.form import button, field, form
+from z3c.form import button
+from z3c.form import field
+from z3c.form import form
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from zope import schema
 from zope.component import getUtility
 from zope.schema import getFieldsInOrder
 
 import logging
-import pkg_resources
+
 
 logger = logging.getLogger(__name__)
 
 
 class IContactRegistrantsForm(model.Schema):
-    subject = schema.TextLine(title=_(u"Subject"), required=True)
-    message = schema.Text(title=_(u"Message"), required=True)
+    subject = schema.TextLine(title=_("Subject"), required=True)
+    message = schema.Text(title=_("Message"), required=True)
 
     registrants = schema.Tuple(
-        title=_(u"Registrants"),
+        title=_("Registrants"),
         description=_(
-            u"List of registered people that compiled email fields "
-            u"(could be one of these fields: email, e-mail, replyto)."
+            "List of registered people that compiled email fields "
+            "(could be one of these fields: email, e-mail, replyto)."
         ),
         required=False,
         default=(),
@@ -41,10 +43,10 @@ class IContactRegistrantsForm(model.Schema):
         ),
     )
     waiting_list = schema.Tuple(
-        title=_(u"Waiting list"),
+        title=_("Waiting list"),
         description=_(
-            u"List of people in waiting list that compiled email fields "
-            u"(could be one of these fields: email, e-mail, replyto)."
+            "List of people in waiting list that compiled email fields "
+            "(could be one of these fields: email, e-mail, replyto)."
         ),
         required=False,
         default=(),
@@ -67,7 +69,7 @@ class ContactRegistrantsForm(form.Form):
     fields["registrants"].widgetFactory = CheckBoxFieldWidget
     fields["waiting_list"].widgetFactory = CheckBoxFieldWidget
 
-    @button.buttonAndHandler(_(u"Submit"), name="submit")
+    @button.buttonAndHandler(_("Submit"), name="submit")
     def handleSubmit(self, action):
         data, errors = self.extractData()
         if errors:
@@ -79,8 +81,8 @@ class ContactRegistrantsForm(form.Form):
             api.portal.show_message(
                 message=_(
                     "contact_recipients_error",
-                    default=u"You need to select at least one recipient from"
-                    u" registrants or waiting_list list.",
+                    default="You need to select at least one recipient from"
+                    " registrants or waiting_list list.",
                 ),
                 request=self.request,
                 type="error",
@@ -95,7 +97,7 @@ class ContactRegistrantsForm(form.Form):
         try:
             self.send_message(data=data, email_addresses=email_addresses)
             api.portal.show_message(
-                message=_("contact_recipients_sent", u"Emails sent."),
+                message=_("contact_recipients_sent", "Emails sent."),
                 request=self.request,
             )
             self.request.response.redirect(self.nextURL())
@@ -104,11 +106,12 @@ class ContactRegistrantsForm(form.Form):
             plone_utils = api.portal.get_tool(name="plone_utils")
             exception = plone_utils.exceptionString()
             message = pmf(
-                u"Unable to send mail: ${exception}", mapping={u"exception": exception},
+                "Unable to send mail: ${exception}",
+                mapping={"exception": exception},
             )
             api.portal.show_message(message=message, request=self.request, type="error")
 
-    @button.buttonAndHandler(_(u"Reset"), name="reset")
+    @button.buttonAndHandler(_("Reset"), name="reset")
     def handleReset(self, action):
         self.request.response.redirect(self.nextURL())
 
@@ -118,13 +121,13 @@ class ContactRegistrantsForm(form.Form):
     def extract_recipients(self, registrants, waiting_list):
         emails = []
         registrants_action = None
-        for name, action in getFieldsInOrder(get_actions(self.context)):
+        for _name, action in getFieldsInOrder(get_actions(self.context)):
             if IRegistrantData.providedBy(action) and action.required:
                 registrants_action = action
         if not registrants_action:
             return _(
                 "contact_registrants_action_not_found",
-                default=u"Unable to send messages. Action not found in Form.",
+                default="Unable to send messages. Action not found in Form.",
             )
         for registrant in registrants_action._storage.values():
             if (
@@ -171,11 +174,10 @@ class ContactRegistrantsForm(form.Form):
             )
 
     def get_package_version(self):
-        return pkg_resources.get_distribution(
-            "collective.easyformplugin.registration"
-        ).version
+        return version("collective.easyformplugin.registration")
 
 
 ContactRegistrantsView = layout.wrap_form(
-    ContactRegistrantsForm, index=ViewPageTemplateFile("contact_registrants_view.pt"),
+    ContactRegistrantsForm,
+    index=ViewPageTemplateFile("contact_registrants_view.pt"),
 )

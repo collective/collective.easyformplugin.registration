@@ -1,53 +1,43 @@
-# -*- coding: utf-8 -*-
+from importlib.resources import files
+from pathlib import Path
 
 import os
-import pkg_resources
 import subprocess
 
+
 domain = "collective.easyformplugin.registration"
-os.chdir(pkg_resources.resource_filename(domain, ""))
-os.chdir("../../../")
-target_path = "src/collective/registration/"
-locale_path = target_path + "locales/"
-i18ndude = "./bin/i18ndude"
+
+# Package directory (…/src/collective/easyformplugin/registration) and the
+# locales folder inside it. i18ndude is expected on the PATH (e.g. installed
+# into the virtualenv), the former buildout ./bin/i18ndude is gone.
+package_path = Path(str(files(domain)))
+locale_path = package_path / "locales"
+i18ndude = "i18ndude"
 
 
 def locale_folder_setup():
+    cwd = os.getcwd()
     os.chdir(locale_path)
-    languages = [d for d in os.listdir(".") if os.path.isdir(d)]
-    for lang in languages:
-        folder = os.listdir(lang)
-        if "LC_MESSAGES" in folder:
-            continue
-        else:
-            lc_messages_path = lang + "/LC_MESSAGES/"
-            os.mkdir(lc_messages_path)
-            cmd = "msginit --locale={0} --input={1}.pot --output={2}/LC_MESSAGES/{3}.po".format(  # NOQA: E501
-                lang, domain, lang, domain,
-            )
-            subprocess.call(
-                cmd, shell=True,
-            )
-
-    os.chdir("../../../../")
+    try:
+        languages = [d for d in os.listdir(".") if os.path.isdir(d)]
+        for lang in languages:
+            if "LC_MESSAGES" in os.listdir(lang):
+                continue
+            os.mkdir(f"{lang}/LC_MESSAGES/")
+            cmd = f"msginit --locale={lang} --input={domain}.pot --output={lang}/LC_MESSAGES/{domain}.po"
+            subprocess.call(cmd, shell=True)
+    finally:
+        os.chdir(cwd)
 
 
 def _rebuild():
-    cmd = "{0} rebuild-pot --pot {1}/{2}.pot --create {3} {4}".format(
-        i18ndude, locale_path, domain, domain, target_path,
-    )
-    subprocess.call(
-        cmd, shell=True,
-    )
+    cmd = f"{i18ndude} rebuild-pot --pot {locale_path}/{domain}.pot --create {domain} {package_path}"
+    subprocess.call(cmd, shell=True)
 
 
 def _sync():
-    cmd = "{0} sync --pot {1}/{2}.pot {3}*/LC_MESSAGES/{4}.po".format(
-        i18ndude, locale_path, domain, locale_path, domain,
-    )
-    subprocess.call(
-        cmd, shell=True,
-    )
+    cmd = f"{i18ndude} sync --pot {locale_path}/{domain}.pot {locale_path}/*/LC_MESSAGES/{domain}.po"
+    subprocess.call(cmd, shell=True)
 
 
 def update_locale():

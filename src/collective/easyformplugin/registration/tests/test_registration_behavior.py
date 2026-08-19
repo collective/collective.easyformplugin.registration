@@ -1,14 +1,14 @@
-# -*- coding: utf-8 -*-
+from collective.easyformplugin.registration.behavior import IRegistrationForm
+from collective.easyformplugin.registration.testing import (
+    COLLECTIVE_EASYFORMPLUGIN_REGISTRATION_FUNCTIONAL_TESTING,
+)
 from plone.app.testing import setRoles
 from plone.app.testing import SITE_OWNER_NAME
 from plone.app.testing import SITE_OWNER_PASSWORD
 from plone.app.testing import TEST_USER_ID
 from plone.dexterity.fti import DexterityFTI
 from plone.testing.zope import Browser
-from collective.easyformplugin.registration.behavior import IRegistrationForm
-from collective.easyformplugin.registration.testing import (
-    COLLECTIVE_EASYFORMPLUGIN_REGISTRATION_FUNCTIONAL_TESTING,
-)
+
 import unittest
 
 
@@ -27,7 +27,7 @@ class RegistrationFormBase:
 class EasyFormRegistrationBehaviorFunctionalTest(
     RegistrationFormBase, unittest.TestCase
 ):
-    """ basic use cases and tests for richtext behavior"""
+    """basic use cases and tests for richtext behavior"""
 
     layer = COLLECTIVE_EASYFORMPLUGIN_REGISTRATION_FUNCTIONAL_TESTING
 
@@ -44,6 +44,7 @@ class EasyFormRegistrationBehaviorFunctionalTest(
         setRoles(self.portal, TEST_USER_ID, ["Member"])
 
         import transaction
+
         transaction.commit()
 
         # Set up browser
@@ -51,10 +52,7 @@ class EasyFormRegistrationBehaviorFunctionalTest(
         self.browser.handleErrors = False
         self.browser.addHeader(
             "Authorization",
-            "Basic {0}:{1}".format(
-                SITE_OWNER_NAME,
-                SITE_OWNER_PASSWORD,
-            ),
+            f"Basic {SITE_OWNER_NAME}:{SITE_OWNER_PASSWORD}",
         )
 
     def test_easyform_registration_in_edit_form(self):

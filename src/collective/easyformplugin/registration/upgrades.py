@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*-
 from plone import api
-from zope.component import queryUtility
 from plone.dexterity.interfaces import IDexterityFTI
+from zope.component import queryUtility
 
 import logging
+
 
 logger = logging.getLogger(__name__)
 
@@ -17,10 +17,10 @@ BEHAVIOR_NAME_MAPPING = {
 
 
 def rename_behavior_interface(context=None):
-    """Rename iface name to the short name """
+    """Rename iface name to the short name"""
     pt = api.portal.get_tool("portal_types")
     for old_behavior_name, short_name in BEHAVIOR_NAME_MAPPING.items():
-        print(old_behavior_name, short_name)
+        logger.info("Renaming behavior %s -> %s", old_behavior_name, short_name)
     for _type in pt.objectIds():
         fti = queryUtility(IDexterityFTI, name=_type)
 
@@ -33,4 +33,4 @@ def rename_behavior_interface(context=None):
                 ]
                 new_fti.append(short_name)
                 fti.behaviors = tuple(new_fti)
-                logger.info("Migrated behavior of {} type".format(_type))
+                logger.info(f"Migrated behavior of {_type} type")

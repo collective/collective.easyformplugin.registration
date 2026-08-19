@@ -1,0 +1,98 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "collective.easyformplugin.registration"
+dynamic = ["version"]
+description = "Add a behavior to collective.easyform to manage registration forms"
+readme = "README.md"
+license = "GPL-2.0-only"
+license-files = ["LICENSE.GPL", "LICENSE.rst"]
+authors = [
+    { name = "Andrea Cecchi", email = "andrea.cecchi85@gmail.com" },
+]
+keywords = ["Python", "Plone"]
+requires-python = ">=3.10"
+classifiers = [
+    "Environment :: Web Environment",
+    "Framework :: Plone",
+    "Framework :: Plone :: 6.2",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+    "collective.easyform[recaptcha]>=4.0.0",
+    "lxml",
+    "z3c.jbot",
+]
+
+[project.optional-dependencies]
+test = [
+    "plone.app.testing",
+    "plone.app.contenttypes[test]",
+]
+
+[project.urls]
+Homepage = "https://github.com/collective/collective.easyformplugin.registration"
+Changelog = "https://github.com/collective/collective.easyformplugin.registration/blob/master/CHANGES.md"
+Issues = "https://github.com/collective/collective.easyformplugin.registration/issues"
+
+[project.scripts]
+update_locale = "collective.easyformplugin.registration.locales.update:update_locale"
+
+[project.entry-points."z3c.autoinclude.plugin"]
+target = "plone"
+
+[tool.hatch.version]
+source = "vcs"
+raw-options = { local_scheme = "no-local-version" }
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "docs", "*.md", "LICENSE*"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/collective"]
+
+[tool.ruff]
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+    "A",
+    "B",
+    "C4",
+    "E",
+    "F",
+    "I",
+    "RUF",
+    "SIM",
+    "T20",
+    "UP",
+    "W",
+]
+ignore = [
+    "E501",
+    "RUF001",
+    "RUF002",
+]
+
+[tool.ruff.lint.isort]
+force-single-line = true
+from-first = true
+lines-after-imports = 2
+lines-between-types = 1
+no-sections = true
+order-by-type = false
+
+[tool.ruff.lint.pycodestyle]
+max-line-length = 120
+max-doc-length = 120
+
+[tool.ruff.lint.per-file-ignores]
+"src/collective/easyformplugin/registration/tests/*" = ["T201"]

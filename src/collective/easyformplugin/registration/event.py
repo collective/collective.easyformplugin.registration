@@ -1,13 +1,14 @@
-# -*- coding: utf-8 -*-
 from collective.easyformplugin.registration.interfaces import (
     IEasyFormRegistrationEnabled,
 )
 from lxml import etree
 from plone.supermodel import loadString
 from Products.CMFPlone.utils import safe_unicode
-from Products.Five.utilities.marker import erase, mark
+from Products.Five.utilities.marker import erase
+from Products.Five.utilities.marker import mark
 
 import os
+
 
 FIELDS_DEFAULT_FILENAME = "fields_default.xml"
 ACTIONS_DEFAULT_FILENAME = "actions_default.xml"

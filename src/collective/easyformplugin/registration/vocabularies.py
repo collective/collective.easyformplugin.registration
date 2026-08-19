@@ -1,16 +1,16 @@
-# -*- coding: utf-8 -*-
 from collective.easyform.api import get_actions
 from collective.easyformplugin.registration.interfaces import IRegistrantData
 from zope.interface import provider
 from zope.schema import getFieldsInOrder
 from zope.schema.interfaces import IVocabularyFactory
-from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
+from zope.schema.vocabulary import SimpleTerm
+from zope.schema.vocabulary import SimpleVocabulary
 
 
 @provider(IVocabularyFactory)
 def registrants_vocabulary_factory(context):
     registrants_action = None
-    for name, action in getFieldsInOrder(get_actions(context)):
+    for _name, action in getFieldsInOrder(get_actions(context)):
         if IRegistrantData.providedBy(action) and action.required:
             registrants_action = action
     if not registrants_action:
@@ -26,7 +26,7 @@ def registrants_vocabulary_factory(context):
 @provider(IVocabularyFactory)
 def waiting_list_vocabulary_factory(context):
     registrants_action = None
-    for name, action in getFieldsInOrder(get_actions(context)):
+    for _name, action in getFieldsInOrder(get_actions(context)):
         if IRegistrantData.providedBy(action) and action.required:
             registrants_action = action
     if not registrants_action:
@@ -48,7 +48,7 @@ def extract_registrant_infos(registrant):
     if fullname:
         registrant_name = fullname
     elif surname and name:
-        registrant_name = "{0} {1}".format(surname, name)
+        registrant_name = f"{surname} {name}"
     return SimpleTerm(
         value=registrant.get("id", ""),
         token=registrant.get("id", ""),
