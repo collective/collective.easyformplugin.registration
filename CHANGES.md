@@ -20,6 +20,8 @@
   `uninstall_product`). [jensens]
 - Fix adding of EasyForm field and action schemata from context with encoding information. [thet]
 - Enhanced gender forms of German translation. [jensens]
+- Don't depend on recaptcha extra for collective.easyform.
+  If you need it, activate it in your policy package. [thet]
 
 ## 2.0.0 (2022-05-31)
 
