@@ -24,6 +24,7 @@
   If you need it, activate it in your policy package. [thet]
 - Clean up EasyForm portal type registration.
   Do not include other behaviors or xml namespaces which aren't needed. [thet]
+- Require `cmf.ModifyPortalContent` permission for the contact registrant views. [thet]
 
 ## 2.0.0 (2022-05-31)
 

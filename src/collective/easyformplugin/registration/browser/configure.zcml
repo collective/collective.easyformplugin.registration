@@ -22,14 +22,14 @@
         for="collective.easyformplugin.registration.interfaces.IEasyFormRegistrationEnabled"
         name="contact-registrants"
         class=".contact_registrants_view.ContactRegistrantsView"
-        permission="zope2.View"
+        permission="cmf.ModifyPortalContent"
         layer="collective.easyformplugin.registration.interfaces.ICollectiveEasyFormpluginRegistrationLayer"
         />
     <browser:page
       for="collective.easyformplugin.registration.interfaces.IEasyFormRegistrationEnabled"
       name="contact-registrants-email"
       template="contact-registrants-email.pt"
-      permission="zope.Public"
+      permission="cmf.ModifyPortalContent"
       layer="collective.easyformplugin.registration.interfaces.ICollectiveEasyFormpluginRegistrationLayer"
       />
 </configure>
