@@ -2,16 +2,10 @@
 <object
     name="EasyForm"
     meta_type="Dexterity FTI"
-    i18n:domain="collective.easyform"
-    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-    purge="False">
+>
   <property
       name="behaviors"
       purge="False">
-    <element value="plone.allowdiscussion" />
-    <element value="plone.excludefromnavigation" />
-    <element value="plone.dublincore" />
-    <element value="plone.namefromtitle" />
     <element value="easyformplugin.registration" />
   </property>
 </object>
