@@ -1,13 +1,13 @@
-<configure
-    xmlns="http://namespaces.zope.org/zope"
-    i18n_domain="collective.easyform">
+<configure xmlns="http://namespaces.zope.org/zope">
 
-    <utility
-        name="collective.easyformplugin.registration.actions.RegistrantData"
-        component=".actions.RegistrantDataAction"
-        />
-    <utility
-        name="collective.easyformplugin.registration.actions.RegistrantData"
-        component=".actions.RegistrantDataHandler"
-        />
+  <utility
+      name="collective.easyformplugin.registration.actions.RegistrantData"
+      component=".actions.RegistrantDataAction"
+  />
+
+  <utility
+      name="collective.easyformplugin.registration.actions.RegistrantData"
+      component=".actions.RegistrantDataHandler"
+  />
+
 </configure>
