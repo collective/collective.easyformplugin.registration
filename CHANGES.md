@@ -2,6 +2,8 @@
 
 ## 3.0.0 (unreleased)
 
+- Fix the "select all" checkbox in the "contact registrants" JavaScript by not
+  trying to translate the "Select all" label. [thet]
 - Breaking: Plone 6.2 only; Python 3.10-3.14. [jensens]
 - Breaking: Native namespace packages (PEP 420) - the `collective` and
   `collective.easyformplugin` namespace `__init__.py` files are gone. [jensens]
